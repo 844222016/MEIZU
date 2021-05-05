@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+<h3>表格使用演示</h3>
+
+<table id="table1" lay-filter="test">
+</table>
+
+<script type="text/html" id="titleTpl">
+
+    <div class="layui-btn-group">
+        <a class="layui-btn layui-btn-primary layui-btn-sm" href="#" lay-event="detail">详情</a>
+        <a class="layui-btn layui-btn-danger layui-btn-sm" href="#" lay-event="update">修改</a>
+        <a class="layui-btn layui-btn-warm layui-btn-sm" href="#" lay-event="delete">删除</a>
+    </div>
+</script>
+<script type="text/html" id="imgTpl"> 
+    <img src="{{d.ImagePath}}"width="50"  />
+</script>
+ 
+
+<div id="test1"></div>
+
+
+
+@section footer{
+    <script>
+    window.addEventListener("load",function (){
+        
+        tools.popup.success("成功消息")
+    })
+     
+        var treeData = [
+            {
+                title: '江西' //一级菜单
+                ,
+                children: [
+                    {
+                        title: '南昌' //二级菜单
+                        ,
+                        children: [
+                            {
+                                title: '高新区' //三级菜单
+                                //…… //以此类推，可无限层级
+                            }
+                        ]
+                    }
+                ]
+            }, {
+                title: '陕西' //一级菜单
+                ,
+                children: [
+                    {
+                        title: '西安' //二级菜单
+                    }
+                ]
+            }
+        ];
+        layui.tree.render({
+            elem: '#test1',  //绑定元素
+            data: treeData 
+        });
+        layui.transfer.render({
+            elem: '#test1'  //绑定元素
+            ,data: [
+                {"value": "1", "title": "李白", "disabled": "", "checked": ""}
+                ,{"value": "2", "title": "杜甫", "disabled": "", "checked": ""}
+                ,{"value": "3", "title": "贤心", "disabled": "", "checked": ""}
+            ]
+            ,id: 'demo1' //定义索引
+        });
+
+
+        layui.table.render({
+            elem: "#table1",
+            url: "/Home/TableData",
+            page: true,
+            cols: [
+                [
+                    { field: "Id", title: "编号",   },
+                    { field: "Name", title: "姓名" },
+                    { title: "图片", templet: "#imgTpl" },
+                    { title: "操作", templet: "#titleTpl", width: 190}
+                ]
+            ],
+            toolbar: true,
+            limits: [10, 20, 30]
+        })
+        layui.table.on('tool(test)',
+            function (obj) {
+                switch (obj.event) {
+                case "detail":
+                    layui.layer.msg(`查看明细：id:${obj.data.Id} name:${obj.data.Name}`);
+                    break;
+                case "update":
+                    layui.layer.msg(`修改：id:${obj.data.Id} name:${obj.data.Name}`);
+                    break;
+                case "delete":
+                    layui.layer.msg(`删除：id:${obj.data.Id} name:${obj.data.Name}`);
+                    break;
+                }
+            })
+    </script>
+}

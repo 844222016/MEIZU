@@ -1,0 +1,29 @@
+﻿@model MEIZU.Models.TableDataViewModel
+
+@{
+    ViewBag.Title = "title"; 
+}
+
+@Html.DisplayFor(m=>m.PearTableData)
+@section footer
+{
+    <script>
+    function detailFunc(data){
+        console.info(data);
+    }
+    function editFunc(data) {
+      
+        layui.layer.msg("修改:"+data.data.Name);
+    }
+    function downItem(obj) {
+      layui.layer.msg("下架"+obj.data.Id)
+    }
+    function create(){
+            
+      layui.layer.msg("xinzeng")
+    }
+    function outRoom(obj){
+        layui.layer.msg("tuifang"+obj.data.Id)
+    }
+    </script>
+}

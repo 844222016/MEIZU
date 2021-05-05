@@ -1,0 +1,38 @@
+﻿@using MEIZU.Tools
+@model MEIZU.Models.DictionaryEditVm
+
+@{
+    ViewBag.Title = "添加数据字典"; 
+}
+@using (Html.BeginPearForm("createForm"))
+{
+    @Html.EditorFor(m=>m.GroupName)
+    @Html.EditorFor(m=>m.Value)
+    @Html.FormSubmitButton()
+}
+
+@section footer
+{
+    <script>
+    layui.form.on("submit(formSubmit)",data =>{
+       console.info(data.field);
+       
+       layui.jquery.ajax({
+            url:"/SysSetting/CreateDictionary",
+            data:data.field,
+            type:"post"
+       }).done(res=>{
+           if (res.code == 200){
+                 window.parent.tools.notice.success("添加成功");
+                 window.parent.layui.layer.closeAll();
+           }else{ 
+                 window.parent.tools.notice.warning(res.msg);
+           }
+       }).fail(err=>{  
+           window.parent.tools.notice.warning("添加失败");
+       });
+       
+       return false;
+    });
+    </script>
+}

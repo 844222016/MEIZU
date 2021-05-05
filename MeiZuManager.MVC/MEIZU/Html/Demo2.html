@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="user-scalable=no,width=360,initial-scale=1,minimum-scale=1,maximum-scale=1">
+        <title></title>
+        <style type="text/css">
+            body{
+                margin: 0;
+            }
+            #myInput {
+                background-image: url('https://static.runoob.com/images/mix/searchicon.png');
+                /* 搜索按钮 */
+                background-position: 10px 12px;
+                /* 定位搜索按钮 */
+                background-repeat: no-repeat;
+                /* 不重复图片*/
+                width: 100%;
+                font-size: 16px;
+                /* 加大字体 */
+                padding: 12px 20px 12px 40px;
+                border: 1px solid #ddd;
+                margin-bottom: 12px;
+            }
+            
+            #myUL {
+                /* 移除默认的列表样式 */
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+            
+            #myUL li a {
+                border: 1px solid #ddd;
+                /* 链接添加边框 */
+                margin-top: -1px;
+                background-color: #f6f6f6;
+                padding: 12px;
+                text-decoration: none;
+                font-size: 18px;
+                color: black;
+                display: block;
+            }
+            
+            #myUL li a.header {
+                background-color: #e2e2e2;
+                cursor: default;
+            }
+            
+            #myUL li a:hover:not(.header) {
+                background-color: #eee;
+            }
+        </style>
+    </head>
+
+    <body>
+        <input type="text" id="myInput"  placeholder="搜索...">
+        <button type="submit">123</button>
+        <ul id="myUL">
+            <li>
+                <a href="#" class="header">A</a>
+            </li>
+            <li>
+                <a href="#">Adele</a>
+            </li>
+            <li>
+                <a href="#">Agnes</a>
+            </li>
+
+            <li>
+                <a href="#" class="header">B</a>
+            </li>
+            <li>
+                <a href="#">Billy</a>
+            </li>
+            <li>
+                <a href="#">Bob</a>
+            </li>
+            <li>
+                <a href="#">博客</a>
+            </li>
+
+
+            <li>
+                <a href="#" class="header">C</a>
+            </li>
+            <li>
+                <a href="#">Calvin</a>
+            </li>
+            <li>
+                <a href="#">Christina</a>
+            </li>
+            <li>
+                <a href="#">Cindy</a>
+            </li>
+        </ul>
+    </body>
+
+</html>
+<script src="../JS/Demo.js" type="module"></script>

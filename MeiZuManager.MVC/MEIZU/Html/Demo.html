@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/libs/component/pear/css/pear.css" />
+</head>
+<body>
+<form class="layui-form" id="installForm">
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">服务器地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="ServerHost" placeholder="请输入服务器地址" autocomplete="off" class="layui-input" value=".">
+        </div>
+    </div>
+
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">服务器账号</label>
+        <div class="layui-input-block">
+            <input type="text" name="ServerName" placeholder="请输入服务器账号" autocomplete="off" class="layui-input" value="sa">
+        </div>
+    </div>
+
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">服务器密码</label>
+        <div class="layui-input-block">
+            <input type="text" name="ServerPwd" placeholder="请输入服务器密码" autocomplete="off" class="layui-input" value="sa">
+        </div>
+    </div>
+
+
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">服务器数据库名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="DbName" placeholder="请输入服务器数据库名称" autocomplete="off" class="layui-input" value="PearAdminDb">
+        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button lay-submit="" lay-filter="formSubmit" class="pear-btn pear-btn-danger">使用上面的数据初始化</button>
+        </div>
+    </div></form>
+</body>
+<script src="/libs/component/layui/layui.all.js"></script>
+<script src="/libs/component/pear/pear.all.js"></script>
+<script>
+    //Demo
+    layui.use('form', function(){
+        var form = layui.form;
+        let $ = layui.$
+        //监听提交
+        form.on('submit(formSubmit)', function(data){
+            $.ajax({
+                url: "/SysSetting/Install",
+                type: "get",
+                data: data.field
+            }).done(function (res) {
+                layui.layer.msg('数据库创建成功，请手动去数据库安装Tools文件夹下的install.txt文件的sql脚本')
+            }).fail(function () {
+                layui.layer.msg('安装失败')
+            });
+            return false;
+        });
+    });
+</script>
+<!--<script>-->
+<!--    let $ = layui.$-->
+<!--    layui.form.on('submit(formDemo)', function (data) {-->
+<!--        $.ajax({-->
+<!--            url: "/SysSetting/Install",-->
+<!--            type: "get",-->
+<!--            data: data.field-->
+<!--        }).done(function (res) {-->
+<!--            layui.layer.msg('数据库创建成功，请手动去数据库安装Tools文件夹下的install.txt文件的sql脚本')-->
+<!--        }).fail(function () {-->
+<!--            layui.layer.msg('安装失败')-->
+<!--        });-->
+<!--        return false;-->
+<!--    });-->
+
+<!--</script>-->
+</html>

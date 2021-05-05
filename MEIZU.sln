@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEIZU.Model", "MEIZU.Model\MEIZU.Model.csproj", "{C548DE77-A241-47EC-BD32-3D951A3E20A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEIZU.DAL", "MEIZU.DAL\MEIZU.DAL.csproj", "{A7F061B8-6555-4BD5-B4EC-46A66085801B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEIZU.BLL", "MEIZU.BLL\MEIZU.BLL.csproj", "{DF3C09B8-99A9-4DAC-8E73-01572F7810E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEIZU.DTO", "MEIZU.DTO\MEIZU.DTO.csproj", "{6DFDFB89-8BB5-4626-AC07-41D8F3667138}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MEIZU.MVC", "MEIZU.MVC\MEIZU.MVC.csproj", "{0B42C717-A1C3-4B77-9179-259BA96BFC98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MeiZuHtml.MVC", "MeiZuManager.MVC\MeiZuHtml.MVC.csproj", "{E43DB36F-6FD6-4943-881F-777102CE3A08}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C548DE77-A241-47EC-BD32-3D951A3E20A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C548DE77-A241-47EC-BD32-3D951A3E20A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C548DE77-A241-47EC-BD32-3D951A3E20A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C548DE77-A241-47EC-BD32-3D951A3E20A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7F061B8-6555-4BD5-B4EC-46A66085801B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7F061B8-6555-4BD5-B4EC-46A66085801B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7F061B8-6555-4BD5-B4EC-46A66085801B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7F061B8-6555-4BD5-B4EC-46A66085801B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF3C09B8-99A9-4DAC-8E73-01572F7810E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF3C09B8-99A9-4DAC-8E73-01572F7810E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF3C09B8-99A9-4DAC-8E73-01572F7810E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF3C09B8-99A9-4DAC-8E73-01572F7810E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DFDFB89-8BB5-4626-AC07-41D8F3667138}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DFDFB89-8BB5-4626-AC07-41D8F3667138}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DFDFB89-8BB5-4626-AC07-41D8F3667138}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DFDFB89-8BB5-4626-AC07-41D8F3667138}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B42C717-A1C3-4B77-9179-259BA96BFC98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B42C717-A1C3-4B77-9179-259BA96BFC98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B42C717-A1C3-4B77-9179-259BA96BFC98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B42C717-A1C3-4B77-9179-259BA96BFC98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E43DB36F-6FD6-4943-881F-777102CE3A08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E43DB36F-6FD6-4943-881F-777102CE3A08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E43DB36F-6FD6-4943-881F-777102CE3A08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E43DB36F-6FD6-4943-881F-777102CE3A08}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F65067D-E0A6-4F20-BF03-DC3317302807}
+	EndGlobalSection
+EndGlobal

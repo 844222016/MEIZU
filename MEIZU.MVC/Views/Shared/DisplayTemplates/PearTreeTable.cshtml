@@ -1,0 +1,76 @@
+﻿@model MEIZU.Tools.PearTreeTableConfig
+
+
+<table id="@Model.Id" lay-filter="@Model.Id"></table>
+ 
+<script type="text/html" id="power-toolbar">
+    <button class="pear-btn pear-btn-primary pear-btn-md" lay-event="save">
+        <i class="layui-icon layui-icon-add-1"></i>
+        保存
+    </button> 
+	<button class="pear-btn pear-btn-success pear-btn-md" lay-event="expandAll">
+	    <i class="layui-icon layui-icon-spread-left"></i>
+	    展开
+	</button>
+	<button class="pear-btn pear-btn-success pear-btn-md" lay-event="foldAll">
+	    <i class="layui-icon layui-icon-shrink-right"></i>
+	    折叠
+	</button>
+</script>
+<script>
+window.addEventListener("load", ()=>{
+     layui.use(['table','form','jquery','treetable'],function () {
+            let table = layui.table;
+            let $ = layui.jquery;
+            let treetable = layui.treetable;
+    
+    
+            window.render = function(){
+                treetable.render({
+                    treeColIndex: 1,
+					   treeSpid: 0,
+					   treeIdName: 'Id',
+					   treePidName: 'ParentMenuId',
+					   skin:'line',
+					   method:'get',
+					   treeDefaultClose: true, 
+					   elem: '#power-table',
+					   url: '/SysSetting/RoleMenuData/@Model.RoleId', 
+					   toolbar: '#user-toolbar',
+					   defaultToolbar: ['filter', 'print', 'exports'],
+					   page: false,
+					   cols: [
+						   [ 
+							   {type:"checkbox"},
+							   {field: 'MenuText',   title: '权限名称'},
+							   {field: 'IconString', title: '图标' ,templet:'#icon'},
+							   {field: 'MenuTypeId', title: '权限类型',templet:'#power-type'} 
+						 
+						   ]
+					   ]
+                });
+            }
+    
+            render();
+     
+    
+            table.on('toolbar(power-table)', function(obj){
+                if(obj.event === 'save'){
+                     window.save(); 
+                } else if(obj.event === 'expandAll'){
+    				 treetable.expandAll("#power-table");
+    			} else if(obj.event === 'foldAll'){
+    				 treetable.foldAll("#power-table");
+    			}
+            });
+    
+          
+     
+    		
+    		 
+        })
+})
+</script>
+<script type="text/html" id="icon">
+	<i class="layui-icon {{d.IconString}}"></i>
+</script>

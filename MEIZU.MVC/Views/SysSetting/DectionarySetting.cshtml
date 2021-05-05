@@ -1,0 +1,32 @@
+﻿@using MEIZU.Tools
+@model MEIZU.Models.DictionaryIndexVm
+
+@{
+    ViewBag.Title = "数据字典管理"; 
+}
+
+@Html.DisplayFor(m=>m.DictionaryTableConfig)
+
+@section footer
+{
+    <script>
+    function dicEdit(data) {
+      @Html.PearOpen("'/SysSetting/EditDictionary/'+data.data.Id")  
+    }
+    /**
+    * iframe弹框被关闭后自动刷新
+    */
+    function openEndFunc() {
+        layui.table.reload("dicTbl"); 
+    }
+    
+    function dicDelete(data) { 
+      layui.jquery.get( "/SysSetting/RemoveDictionary/"+data.data.Id ) 
+      return true;
+    }
+    
+    function create(){
+        @Html.PearOpen("'/SysSetting/CreateDictionary'")
+    }
+    </script>
+}

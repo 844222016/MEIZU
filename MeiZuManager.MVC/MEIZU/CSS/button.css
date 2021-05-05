@@ -1,0 +1,324 @@
+#meizu-footer {
+    margin: 0;
+    padding: 0;
+    z-index: 999;
+    font-size: 14px;
+    color: #515151;
+    position: relative;
+    background-color: #fff;
+}
+#meizu-footer .meizu-footer-link {
+    padding: 13px 0 20px;
+    border-top: 1px solid #f1f1f1;
+}
+#meizu-footer .meizu-footer-wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+#meizu-footer .meizu-row {
+    max-width: 1240px;
+    position: relative;
+}
+.clearfix:after, .clearfix:before {
+    content: "";
+    display: table;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+#meizu-footer .meizu-footer-service {
+    width: 1000px;
+    float: left;
+}
+#meizu-footer .meizu-footer-service li {
+    float: left;
+    text-align: center;
+    width: 15%;
+}
+#meizu-footer .meizu-footer-service li a {
+    display: block;
+    overflow: hidden;
+}
+#meizu-footer .meizu-footer-service li img {
+    width: 50px;
+    display: block;
+    margin: 0 auto;
+}
+#meizu-footer .meizu-footer-service li span {
+    line-height: 30px;
+    color: #999;
+    font-size: 12px;
+}
+#meizu-footer li {
+    list-style: none;
+}
+#meizu-footer a {
+    color: #515151;
+    text-decoration: none;
+}
+#meizu-footer .onlive-server {
+    float: right;
+    text-align: right;
+    margin-top: -18px;
+}
+#meizu-footer .onlive-server span {
+    color: #999;
+    font-size: 12px;
+    line-height: 30px;
+}
+#meizu-footer .onlive-server .tel {
+    color: #008cff;
+    font-size: 25px;
+    font-weight: 400;
+    margin-top: -6px;
+    line-height: 40px;
+}
+#meizu-footer .onlive-server .onlive-btn {
+    height: 30px;
+    padding: 0 16px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    line-height: 30px;
+    color: #fff;
+    border-radius: 20px;
+    margin-top: 3px;
+    display: inline-block;
+    font-size: 14px;
+    background: #008cff;
+}
+#meizu-footer .meizu-row:after {
+    content: "";
+    display: block;
+    clear: both;
+    height: 0;
+}
+#meizu-footer .footer-hr {
+    margin: 10px auto 28px;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #eee;
+    padding: 0;
+}
+#meizu-footer .meizu-row {
+    max-width: 1240px;
+    position: relative;
+}
+#meizu-footer .meizu-footer-info {
+    color: #999;
+    text-align: left;
+    font-size: 12px;
+    width: 100%;
+}
+#meizu-footer .meizu-footer-info-left {
+    float: left;
+}
+.clearfix:after, .clearfix:before {
+    content: "";
+    display: table;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+#meizu-footer .meizu-footer-info-left ul li {
+    padding-right: 15px;
+    border-right: 1px solid #d6d6d6;
+    float: left;
+    height: 18px;
+    margin-right: 15px;
+}
+#meizu-footer .meizu-footer-info-left ul a {
+    display: block;
+    line-height: 18px;
+}
+#meizu-footer .meizu-footer-info-left .no-border {
+    border: none;
+    position: relative;
+}
+.clearfix:after, .clearfix:before {
+    content: "";
+    display: table;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.meizu-footer-certificate {
+    padding-top: 8px;
+}
+#meizu-footer .meizu-footer-info a {
+    color: #999;
+}
+#meizu-footer .meizu-footer-info-left ul a:hover {
+    color: #008cff;
+}
+.lilast span{
+    margin-left: 25px;
+}
+.lilast{
+    cursor: pointer;
+    position: relative;
+    float: right;
+}
+.lilast:hover{  
+    color: black;
+}
+.lilast ul{
+    display: none;
+    overflow: hidden;
+    width: 115px;
+    background: #fff;
+    border: 1px solid #f1f1f1;
+    z-index: 999;
+    position: absolute;
+    top: -191px;
+    left: -11px;
+}
+.lilast li {
+    padding: 0;
+    margin: 0;
+    height: 37px!important;
+    width: 83%;
+    padding-left: 10px;
+    padding-top: 2px;
+    background: #fff;
+    margin-right: 0!important;
+    border: none!important;
+    padding-right: 4px!important;
+}
+.icon-lang-logo-cn {
+    background-position: 0 0;
+}
+.icon-lang-logo{
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    top: 0;
+    left: 0;
+    background-image: url(../Images/Index/guojia.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.jinghun i{
+    width: 14px;
+    background-image: url(../Images/Index/jinghun.png);
+}
+.meizu-footer-certificate{
+    padding-top: 15px;
+}
+.ii-subscribe a{
+    margin-left: 10px;
+}
+.ii-subscribes{
+    float: right;
+    margin-top: 25px;
+    position: relative;
+}
+.ii-subscribes a{
+    color: #999;
+}
+.ii-subscribes img{
+    margin-bottom: -9px;
+}
+.ii-subscribes i{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 4px;
+    margin-right: 20px;
+}
+.ii-subscribes em{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100%;
+}
+.ii-subscribes img{
+    display: none;
+}
+.ii-subscribes i:nth-child(1){
+    background: url(../Images/Index/reweima1-1.png);
+}
+.ii-subscribes i:nth-child(2){
+    background: url(../Images/Index/reweima2-2.png);
+}
+.ii-subscribes i:nth-child(3){
+    background: url(../Images/Index/reweima3-3.png);
+}
+.ii-subscribes i:nth-child(4){
+    background: url(../Images/Index/reweima4-4.png);
+}
+.weiImg{
+    position: absolute;
+    top: 0px;
+    right: 323px;
+}
+.weiImg img:nth-child(1){
+    width: 180px;
+    height: 180px;
+    display: none;
+}
+.weiImg img:nth-child(2){
+    width: 180px;
+    height: 180px;
+    display: none;
+}
+/* <div class="meizu">
+<div id="meizu-footer" class="meizu-footer">
+    <div class="meizu-footer-link">
+        <div class="meizu-footer-wrap">
+            <div class="meizu-row clearfix">
+                <ul class="meizu-footer-service" id="meizu-footer-service" style="margin-top: 30px;">
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="../Images/Index/buttom1.png" alt="">
+                            <span>满80免运费</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="../Images/Index/buttom2.png" alt="">
+                            <span>100+ 城市次日送达</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="../Images/Index/buttom3.png" alt="">
+                            <span>7天无理由退货</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="../Images/Index/buttom4.png" alt="">
+                            <span>15天换货保障</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="../Images/Index/buttom5.png" alt="">
+                            <span>1年免费保修</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="" target="_blank">
+                            <img src="../Images/Index/buttom6.png" alt="">
+                            <span>上门快修</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="onlive-server meizu-footer-hotline" style="margin-top: 10px;">
+                    <span>周一至周日 8:00-20:00</span>
+                    <p class="tel">400-788-3333</p>
+                    <a class="onlive-btn" href="http://url.meizu.com/ols_PC"target="_blank">在线客服
+                    </a>
+                </div>
+            </div>
+        <hr class="footer-hr">
+</div>
+</div> */

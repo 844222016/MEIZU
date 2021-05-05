@@ -1,0 +1,27 @@
+﻿@using MEIZU.Tools
+@model MEIZU.Models.RoleEditVm
+@{
+    ViewBag.Title = "修改角色";
+}
+@using(Html.BeginPearForm("RoleEditForm"))
+{
+    @Html.HiddenFor(m => m.Id)
+    @Html.EditorFor(m => m.RoleName)
+    @Html.FormSubmitButton("修改","RoleEditBtn")
+}
+
+@section footer
+{
+    <script>
+        layui.form.on("submit(RoleEditBtn)",function (data){
+            layui.jquery.ajax({
+                url:"/SysSetting/RoleEdit",
+                type:"post",
+                data:data.field
+            }).done(res =>{
+                @Html.ModalOpenDoneFucAndCloseIframeModal("修改成功")
+            })
+        })
+    
+    </script>
+}

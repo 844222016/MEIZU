@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>购物车-我的购物车</title>
+    <link rel="icon" href="../Images/Index/HtmlLogo.ico">
+    <link rel="stylesheet" href="../CSS/button.css">
+    <link rel="stylesheet" href="../CSS/ShoppingCart.css">
+    <link rel="stylesheet" href="../CSS/OrderDetails.css">
+</head>
+<body>
+    <div class="layout-header clearfix layout-header-order login">
+        <div class="mzcontainer">
+            <div class="layout-header-logo">
+                <a href="Index.html" class="layout-header-logo-link">
+                    <img src="../Images/ShoppingCart/Logo.png" alt="" style="max-width:125px;margin-top:  28px;">
+                </a>
+            </div>
+            <ul class="layout-header-bread">
+                <li class="layout-header-bread-block ">
+                    购物车
+                </li>
+                <li class="layout-header-bread-block active">
+                    确认订单
+                </li>
+                <li class="layout-header-bread-block ">
+                    在线支付
+                </li>
+                <li class="layout-header-bread-block ">
+                    完成
+                </li>
+            </ul>
+            <ul class="layout-header-right">
+                <li class="layout-header-right-item">
+                    <a href="javascript:;" class="layout-header-right-link">我的订单</a>
+                </li>
+                <li class="layout-header-right-item signout">
+                    <a class="layout-header-right-link" href="RLogin.html">登录</a>
+                </li>
+                <li class="layout-header-right-item signout">
+                    <a class="layout-header-right-link" href="RLogin.html">注册</a>
+                </li>
+                <li class="layout-member signin">
+                    <a class="layout-member-link" href="">
+                        <span class="layout-member-username">用户680257284</span>
+                        的商城
+                        <i class="layout-member-triangle"></i>
+                    </a>
+                    <ul class="layout-member-downmenu">
+                        <li class="layout-member-downmenu-item">
+                            <a href="" class="layout-member-downmenu-link">地址管理</a>
+                        </li>
+                        <li class="layout-member-downmenu-item">
+                            <a href="" class="layout-member-downmenu-link">我的收藏</a>
+                        </li>
+                        <li class="layout-member-downmenu-item">
+                            <a href="" class="layout-member-downmenu-link">我的回购金</a>
+                        </li>
+                        <li class="layout-member-downmenu-item">
+                            <a href="" class="layout-member-downmenu-link">问题反馈</a>
+                        </li>
+                        <li class="layout-member-downmenu-item">
+                            <a href="" class="layout-member-downmenu-link exit">退出</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="cart" style="position: relative;">
+        <div class="mzcontainer">
+            <div class="order-address" id="addressModule">
+                <div class="order-address-title">
+                    收货人信息
+                    <div class="order-address-title-tips" id="orderAddressHasOldTips">
+                        <i class="order-address-tips-icon"></i>因配送地址库升级，部分地址需升级后方可使用！
+                    </div>
+                </div>
+                <ul class="order-address-list clearfix" id="addressList" style="height: 174px;"><li class="order-address-checkbox add">
+                <div class="order-add-icon"></div>
+                <div class="order-address-add-text">添加新地址</div>
+                </li></ul>
+                <div class="order-address-bottom">
+                    <div class="order-address-more" id="orderAddressMore">
+                        <p class="order-address-more-text">点击显示更多地址</p>
+                        <i class="order-address-triangle"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="mzcontainer order-product">
+                <div class="order-product-title">确认订单信息</div>
+                <div class="order-product-list" id="orderProductList"><table cellpadding="0" cellspacing="0" class="order-product-table">
+  <thead>
+  <tr>
+    <th class="order-product-table-name">
+      <div class="order-product-supplier">
+        供应商：<span class="order-product-supplier-name">魅族</span>
+        <!--<div class="order-product-supplier-tips">由“魅族”负责发货，并提供售后服务</div>-->
+      </div>
+    </th>
+    <th class="order-product-table-price">单价</th>
+    <th class="order-product-table-num">数量</th>
+    <th class="order-product-table-total">小计</th>
+    <th class="order-product-table-express table-express-header">配送方式</th>
+  </tr>
+  </thead>
+  <tbody><tr>
+  <td class="order-product-table-name">
+    <a target="_blank" class="order-product-link" href="//detail.meizu.com/item/meizu17.html" data-mdesc="确认订单信息" data-mtype="click_store_se_ord" data-bh="click_store_se_ord">
+      <img class="order-product-image" data-original="//openfile.meizu.com/group1/M00/07/C4/Cgbj0F6zwMuANEeWAAw6yQFAJXM097.png@120x120.jpg" src="//openfile.meizu.com/group1/M00/07/C4/Cgbj0F6zwMuANEeWAAw6yQFAJXM097.png@120x120.jpg" style="display: inline;">
+    </a>
+    <div class="order-product-name">
+      <a target="_blank" class="order-product-link" href="//detail.meizu.com/item/meizu17.html" data-mdesc="确认订单信息" data-mtype="click_store_se_ord" data-bh="click_store_se_ord">
+        <p class="order-product-name-item item-name">魅族 17</p>
+        <p class="order-product-name-item cspu-desc">全网通公开版 AG梦幻独角兽 8+128GB</p>
+        
+      </a>
+    </div>
+  </td>
+  <td class="order-product-table-price">
+    <p>
+      <span class="order-product-price">3699.00</span>
+      
+    </p>
+    
+    
+  </td>
+  <td class="order-product-table-num">1</td>
+  <td class="order-product-table-total">
+    <p class="order-product-price red">3699.00</p>
+  </td>
+  
+  <td class="order-product-table-express" rowspan="999">
+    <p style="    font-size: 14px">
+      快递配送：运费<span class="order-product-price red express-fee has-express-fee">0.00</span>
+    </p>
+  </td>
+  
+</tr>
+
+<!-- 套餐 -->
+
+
+<!-- 赠品 -->
+
+
+<!-- 加价购商品 --></tbody>
+  <tfoot>
+  <tr class="order-product-footer">
+    <td colspan="3" class="order-product-info">
+      
+      <div class="order-product-invoice clearfix">
+        
+          
+          <div class="order-product-invoice-type">
+            发票类型：电子发票<div class="order-product-invoice-icon"></div>
+          </div>
+          
+          <span class="order-product-invoice-edit">修改</span>
+          <div class="order-product-invoice-info">
+            <p>发票抬头：<span class="order-product-invoice-title">默认为收货人姓名</span>
+            </p>
+            <p class="order-product-company">纳税人识别号：<span class="order-product-invoice-identify"></span></p>
+            <p class="order-product-company">开户行及账号：<span class="order-product-invoice-bank"></span></p>
+          </div>
+        </div>
+        
+      
+    </td>
+    <td colspan="2" class="order-product-total">
+      合计：<span class="order-product-price red total-has-express-fee">3699.00</span>
+    </td>
+  </tr>
+  <tr class="order-product-remark">
+    <td colspan="5">
+      <span class="order-product-remark-title">备注：</span>
+      <textarea class="order-product-remark-input" maxlength="45"></textarea>
+    </td>
+  </tr>
+  </tfoot>
+</table></div>
+            </div>
+            <div class="order-total-pay">
+                <div class="order-total-pay-header">选择支付方式</div>
+                <div class="order-total-pay-content" id="payToolsContent">
+<div class="order-total-pay-row clearfix">
+<div class="order-total-pay-title ">快捷支付</div>
+<ul class="order-total-pay-list clearfix">
+
+<li class="order-total-pay-label huabei" data-bh="click_store_pay_pm_huabei">
+  <div class="order-total-pay-radio"></div>
+  <div class="order-total-pay-img"></div>
+  
+<div class="order-total-pay-tips">订单满1元可分期</div></li>
+
+<li class="order-total-pay-label alipay" data-bh="click_store_pay_pm_alipay">
+  <div class="order-total-pay-radio"></div>
+  <div class="order-total-pay-img"></div>
+  
+</li>
+<li class="order-total-pay-label Weixin" data-bh="click_store_pay_pm_alipay">
+  <div class="order-total-pay-radio"></div>
+  <div class="order-total-pay-img"></div>
+  
+</li>
+</ul>
+
+
+<div class="order-total-pay-huabei">
+<div class="order-total-pay-huabei-content clearfix"><div class="order-total-pay-huabei-choose active">
+<p class="order-total-pay-huabei-top">
+<span class="order-total-pay-huabei-price">1233.00</span> × 3期
+</p>
+<p>免手续费</p>
+</div>
+
+<div class="order-total-pay-huabei-choose">
+<p class="order-total-pay-huabei-top">
+<span class="order-total-pay-huabei-price">616.50</span> × 6期
+</p>
+<p>免手续费</p>
+</div>
+
+<div class="order-total-pay-huabei-choose">
+<p class="order-total-pay-huabei-top">
+<span class="order-total-pay-huabei-price">331.36</span> × 12期
+</p>
+<p>含手续费 ￥23.11/期</p>
+</div></div>
+</div>
+
+</div>
+
+<div class="order-total-pay-row clearfix">
+<ul class="order-total-pay-list clearfix">
+</li>
+
+</ul>
+
+
+</div>
+
+<div class="order-total-pay-row clearfix">
+<div class="order-total-pay-title ">网上银行</div>
+<ul class="order-total-pay-list clearfix">
+
+<li class="order-total-pay-label boc" data-bh="click_store_pay_pm_boc">
+  <div class="order-total-pay-radio"></div>
+  <div class="order-total-pay-img"></div>
+  
+</li>
+
+<li class="order-total-pay-label ccb" data-bh="click_store_pay_pm_ccb">
+  <div class="order-total-pay-radio"></div>
+  <div class="order-total-pay-img"></div>
+  
+</li>
+
+<li class="order-total-pay-label abc" data-bh="click_store_pay_pm_abc">
+  <div class="order-total-pay-radio"></div>
+  <div class="order-total-pay-img"></div>
+  
+</li>
+
+<li class="order-total-pay-label icbc" data-bh="click_store_pay_pm_icbc">
+  <div class="order-total-pay-radio"></div>
+  <div class="order-total-pay-img"></div>
+  
+</li>
+
+<li class="order-total-pay-label comm" data-bh="click_store_pay_pm_comm">
+  <div class="order-total-pay-radio"></div>
+  <div class="order-total-pay-img"></div>
+  
+</li>
+
+<li class="order-total-pay-label cmb" data-bh="click_store_pay_pm_cmb">
+  <div class="order-total-pay-radio"></div>
+  <div class="order-total-pay-img"></div>
+  
+</li>
+
+<li class="order-total-pay-label psbc" data-bh="click_store_pay_pm_psbc">
+  <div class="order-total-pay-radio"></div>
+  <div class="order-total-pay-img"></div>
+  
+</li>
+
+<li class="order-total-pay-label cib" data-bh="click_store_pay_pm_cib">
+  <div class="order-total-pay-radio"></div>
+  <div class="order-total-pay-img"></div>
+  
+</li>
+
+<li class="order-total-pay-label shbank" data-bh="click_store_pay_pm_shbank">
+  <div class="order-total-pay-radio"></div>
+  <div class="order-total-pay-img"></div>
+  
+</li>
+
+</ul>
+
+
+<table class="order-total-pay-banks-detail" cellspacing="0" cellpadding="0" style="display: none;">
+<thead>
+<tr>
+  <th width="150px">银行名称</th>
+  <th width="400px">限额</th>
+  <th width="140px">支持卡种</th>
+  <th width="140px">客服电话</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+</div>
+
+</div>
+<div class="order-total-content">
+    <div class="order-total-row">
+        总金额：
+        <div class="order-total-price" id="totalOrderPrice">3699.00</div>
+    </div>
+    <div class="order-total-row">
+        运费
+        <div class="order-total-price" id="totalExpressPrice">0.00</div>
+    </div>
+    <div class="order-total-line"></div>
+    <div class="order-total-row">
+        应付：
+        <div class="order-total-price total" id="totalPayPrice">3699.00</div>
+    </div>
+    <div class="order-total-row order-total-valid-row clearfix">
+        <div class="order-total-valid" id="validCode"></div>
+        <div class="mz-btn success" id="submitForm" data-mdesc="下单并支付" data-mtype="store_se_pay" data-bh="click_store_se_pay">下单并支付</div>
+        <div class="order-stock-tips-wrap" id="orderStockTips" style="display: block;">
+            <div class="order-stock-tips">该订单含付款减库存商品，支付完成后才会为您预留库存！</div>
+        </div>
+    </div>
+    <div class="order-total-row order-total-row-tips" id="totalTips"></div>
+</div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="meizu-footer" style="position: relative;">
+        <div id="meizu-footer" class="meizu-footer">
+            <div class="meizu-footer-link">
+                <div class="meizu-footer-wrap">
+                    <div class="meizu-row clearfix">
+                        <ul class="meizu-footer-service" id="meizu-footer-service" style="margin-top: 30px;">
+                            <li>
+                                <a href="" target="_blank">
+                                    <img src="../Images/Index/buttom1.png" alt="">
+                                    <span>满80免运费</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" target="_blank">
+                                    <img src="../Images/Index/buttom2.png" alt="">
+                                    <span>100+ 城市次日送达</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" target="_blank">
+                                    <img src="../Images/Index/buttom3.png" alt="">
+                                    <span>7天无理由退货</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" target="_blank">
+                                    <img src="../Images/Index/buttom4.png" alt="">
+                                    <span>15天换货保障</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" target="_blank">
+                                    <img src="../Images/Index/buttom5.png" alt="">
+                                    <span>1年免费保修</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="" target="_blank">
+                                    <img src="../Images/Index/buttom6.png" alt="">
+                                    <span>上门快修</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="onlive-server meizu-footer-hotline" style="margin-top: 10px;">
+                            <span>周一至周日 8:00-20:00</span>
+                            <p class="tel">400-788-3333</p>
+                            <a class="onlive-btn" href="javascript:void(0)">在线客服
+                            </a>
+                        </div>
+                    </div>
+                <hr class="footer-hr">
+                <div class="meizu-footer-co">
+                    <div class="meizu-row">
+                        <div class="meizu-footer-info">
+                            <div class="meizu-footer-info-left">
+                                <ul>
+                                    <li>
+                                        <a href="">了解魅族</a>
+                                    </li>
+                                    <li>
+                                        <a href="">加入我们</a>
+                                    </li>
+                                    <li>
+                                        <a href="">联系我们</a>
+                                    </li>
+                                    <li>
+                                        <a href="">Flyme</a>
+                                    </li>
+                                    <li>
+                                        <a href="">魅族社区</a>
+                                    </li>
+                                    <li>
+                                        <a href="">天猫旗舰店</a>
+                                    </li>
+                                    <li>
+                                        <a href="">问题反馈</a>
+                                    </li>
+                                    <li>
+                                        <a href="">线上销售授权名单公示</a>
+                                    </li>
+                                    <li>
+                                        <a href="">出版物经营许可证</a>
+                                    </li>
+                                    <div class="lilast">
+                                            <i class="icon-lang-logo icon-lang-logo-cn"></i>
+                                            <span>简体中文</span>
+                                            <ul>
+                                                <li>
+                                                    <i class="icon-lang-logo icon-lang-logo-cn"></i>
+                                                    <span>简体中文</span>
+                                                </li>
+                                                <li>
+                                                    <i class="icon-lang-logo icon-lang-logo-cn"></i>
+                                                    <span>繁体中文</span>
+                                                </li>
+                                                <li>
+                                                    <i class="icon-lang-logo icon-lang-logo-cn"></i>
+                                                    <span>English</span>
+                                                </li>
+                                                <li>
+                                                    <i class="icon-lang-logo icon-lang-logo-cn"></i>
+                                                    <span>Русский</span>
+                                                </li>
+                                                <li>
+                                                    <i class="icon-lang-logo icon-lang-logo-cn"></i>
+                                                    <span>Türkiye</span>
+                                                </li>
+                                            </ul>
+                                    </div>
+                                </ul>
+                                <div class="meizu-footer-certificate">
+                                </div>
+                                <div class="ii-subscribe">
+                                    <br>
+                                    ©2020 Meizu Telecom Equipment Co., Ltd. All rights reserved.    
+                                    <a href="">粤ICP备13003602号</a>
+                                    <a href="">合字B2-20170010 </a>
+                                    <a href="">营业执照</a>
+                                    <a href="">法律声明</a>
+                                    <a href="" class="jinghun">
+                                        <span>
+                                            <i></i>
+                                            粤公网安备 44049102496009 号
+                                        </span>
+                                    </a>
+                                    <a href="">
+                                        <i></i>
+                                    </a>
+                                    <a href="">
+                                        <i></i>
+                                    </a>
+                                    <a href="">
+                                        <i></i>
+                                    </a>
+                                </div>
+                            </div>
+                                
+                        </div>
+                    </div>
+                </div>
+                <div>
+            </div>
+            
+            <div class="ii-subscribes" style="position: relative;top: -85px;right: -117px;width: 300px;overflow: hidden;">
+                <ul class="meizu-footer-service" id="meizu-footer-service" style="margin-top: 30px;">
+                    <li style="width: 50px;margin: 0;padding: 0;" class="weibo">
+                        <a href="" target="_blank">
+                            <img src="../Images/Index/reweima1-1.png" alt="" style="width: 25px;">
+                        </a>
+                    </li>
+                    <li style="width: 50px;height: 20px;margin: 0;padding: 0;" class="weixin">
+                        <a href="" target="_blank"  style="margin: 0;padding: 0;">
+                            <img src="../Images/Index/reweima2-2.png" alt="" style="width: 25px;">
+                        </a>
+                    </li>
+                    <li style="width: 50px;height: 20px;margin: 0;padding: 0;">
+                        <a href="" target="_blank" style="margin: 0;padding: 0;">
+                            <img src="../Images/Index/reweima3-3.png" alt="" style="width: 25px;">
+                        </a>
+                    </li>
+                    <li style="width: 50px;height: 20px;margin: 0;padding: 0;">
+                        <a href="" target="_blank" style="margin: 0;">
+                            <img src="../Images/Index/reweima4-4.png" alt="" style="width: 25px;">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="weiImg">
+                <img src="../Images/Index/reweima1.png" alt="">
+                <img src="../Images/Index/reweima2.png" alt="">
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="mz-mask">
+        <div class="mz-dialog dialog address-adder" style="margin-left: -380px; margin-top: -181.5px;">
+          <div class="mz-dialog-header">
+            <div class="mz-dialog-title">添加新地址</div>
+            <div class="mz-dialog-close"></div>
+          </div>
+          <div class="mz-dialog-main">
+            <div class="mz-dialog-warp">
+              
+              <div class="mz-dialog-content"><div class="address-adder-content">
+        <div class="address-adder-row clearfix">
+            <div class="address-adder-title">
+              收货人姓名
+              <span class="address-adder-must">*</span>
+            </div>
+            <div class="mz-input-warp">
+              <input type="text" class="mz-input address-adder-name" placeholder="姓名长度不超过15个文字" value="" maxlength="15">
+            </div>
+          <div class="address-adder-title">收货人手机号<span class="address-adder-must">*</span></div>
+          <div class="mz-input-warp"><input type="text" class="mz-input address-adder-phone" placeholder="请输入11位手机号" value="" maxlength="11"></div>
+        </div>
+        <div class="address-adder-row clearfix">
+          <div class="address-adder-title">收货人地址<span class="address-adder-must">*</span></div>
+          <div data-toggle="distpicker" style="float: left;">
+            <select id="eprovinceName" data-province="河北省" name="provinceName" class="mz-selectmenu"></select>
+            <select id="ecityName" data-city="邯郸市" name="cityName"  class="mz-selectmenu"></select>
+            <select id="edistrictName" data-district="肥乡区" name="districtName"  class="mz-selectmenu"></select>
+          </div>
+          <div class="mz-input-warp address-adder-select mz-address">
+        <div class="address-adder-row clearfix address-adder-other" style="display: none;">
+          <div class="address-adder-title">其他</div>
+        </div>
+        <div class="address-adder-row clearfix">
+          <div class="address-adder-title">详细地址<span class="address-adder-must">*</span></div>
+          <div class="mz-input-warp">
+            <input type="text" class="mz-input address-adder-detail" placeholder="请输入4-50个文字的详细地址，例如路名、门牌号" value="" maxlength="50" minlength="4">
+          </div>
+        </div>
+      </div></div>
+            </div>
+          </div>
+          
+          <div class="mz-dialog-bottom">
+            
+            <div class="mz-btn success submit">确认</div>
+            
+            <div class="mz-btn cancel">取消</div>
+            
+          </div>
+          
+        </div>
+      </div>
+    <script src="../JS/Controls/mutex.js" type="module"></script>
+    <script src="../JS/OrderDetails.js" type="module"></script>
+    <script src="../JS/Controls/Address.js" type="module"></script>
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/distpicker/dist/distpicker.js"></script>
+</body>
+</html>

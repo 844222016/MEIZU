@@ -1,0 +1,180 @@
+﻿@using MEIZU.Tools
+@model dynamic
+
+@{
+    ViewBag.Title = "菜单管理"; 
+}
+ 
+<table id="power-table" lay-filter="power-table"></table>
+
+
+@section footer
+{
+    <script>
+    Array.max = function( array ){ 
+    return Math.max.apply( Math, array );
+    };
+    Array.min = function( array ){ 
+    return Math.min.apply( Math, array );
+    };
+    window.loadedFunc =  function(){
+        layui.use( 'dropdown' , function() {
+        tools.treetable.render({
+            treeColIndex: 1,
+            treeSpid: 0,
+            treeIdName: 'Id',
+            treePidName: 'ParentMenuId',
+            skin:'line',
+            method:'get',
+            treeDefaultClose: true, 
+            elem: '#power-table',
+            url: '/SysSetting/MenuData', 
+            toolbar: '#user-toolbar',
+            defaultToolbar: ['filter', 'print', 'exports'],
+            page: false,
+            cols: [
+                [ 
+                { title: '序号',type:"numbers"},
+                {field: 'MenuText',   title: '权限名称'},
+                {field: 'IconString', title: '图标' ,templet:'#icon'},
+                {field: 'MenuTypeId', title: '权限类型',templet:'#power-type'},
+                {field: 'Url', title: '跳转地址' },
+                {field: 'Order', title: '排序'},
+                {title: '操作',templet: '#power-bar', width: 150, align: 'center'}
+                ]
+            ],
+            done:function (res){
+                console.info(res);
+                let menus = [
+                                {txt: "上移节点", event: "moveUp"},
+                                {txt: "下移节点", event: "moveDown"},
+                                {txt: "添加子节点", event: "createChild"}
+                            ];
+                
+                
+                for (const item of res.data) {
+                    let copyMenus = []; 
+                    if (item.Order !== Array.min(res.data
+                              .filter(m=>m.ParentMenuId === item.ParentMenuId)
+                              .map(m=>m.Order)))
+                    {
+                          copyMenus.push(menus[0]);
+                    }
+                    
+                    if (item.Order !== Array.max(res.data
+                              .filter(m=>m.ParentMenuId === item.ParentMenuId)
+                              .map(m=>m.Order)))
+                    {
+                        copyMenus.push(menus[1]);
+                    }
+                    
+                    if(item.ParentMenuId ===0){
+                        copyMenus.push(menus[2]);
+                    }
+                    if (copyMenus.length>0){
+                       
+                        layui.dropdown.suite("#more" + item.Id, {
+                            align: 'center',
+                            menus: copyMenus
+                        });
+                    }else{
+                         layui.jquery("#more" + item.Id).hide();
+                    }
+                } 
+            }
+        });
+         layui.table.on("tool(power-table)",res=>{ 
+             let data = res.data;
+             console.info(data);
+             switch (res.event) {
+                 case "createChild":
+                     @Html.PearOpen("'/SysSetting/CreateMenu/'+ data.Id");
+                     break;
+               case "edit":
+                   @Html.PearOpen("'/SysSetting/EditMenu/'+data.Id")
+                   break;
+               case "remove":
+                  layer.confirm((data.ParentMenuId !== 0?'确定要删除吗？':'确定删除根节点吗？根节点删除会把全部子节点都删除！'), {
+                    btn: ['确定', '取消'] 
+                  },function(index){
+                    layui.jquery.ajax({
+                        url:"MenuRemove",
+                        type:"post",
+                        data:{
+                            id:data.Id,
+                            parentId:data.ParentMenuId
+                        }
+                       }).done(res =>{
+                           layer.close(index);
+                            window.parent.location.reload();
+                       });
+                  });
+                  break;
+               case "moveUp":
+                    
+                   layui.jquery.ajax({
+                        url:"/SysSetting/MenuMove",
+                        data:{
+                            id:data.Id,
+                            parentId:data.ParentMenuId,
+                            isMoveUp:true    
+                        }
+                   }).done(() =>{
+                       window.parent.location.reload();
+                   });
+                   
+                   break;
+               case "moveDown":
+                   layui.jquery.ajax({
+                           url:"/SysSetting/MenuMove",
+                           data:{
+                               id:data.Id,
+                               parentId:data.ParentMenuId,
+                               isMoveUp:false    
+                           }
+                      }).done(() =>{ 
+                       
+                       window.parent.location.reload();
+                      });
+                   break;
+             }
+         }); 
+         });
+          
+          layui.table.on("toolbar(power-table)",res =>{ 
+              switch (res.event) {
+                 case "add":
+                      @Html.PearOpen("'/SysSetting/MenuCreateByParent'");
+                     break;
+              }
+          });
+      }
+      
+       /**
+      * iframe弹框被关闭后自动刷新
+      */
+      function openEndFunc() {
+          layui.table.reload("power-table"); 
+      }
+   </script>
+}
+<script type="text/html" id="icon">
+    <i class="{{d.IconString}}"></i>
+</script>
+<script type="text/html" id="power-type">
+    {{d.MenuTypeId == 1?'Menu':'Page'}}
+</script>
+<script type="text/html" id="power-bar">
+    {{# if(d.Id > 5){ }}
+    <button class="pear-btn pear-btn-primary pear-btn-sm" lay-event="edit"><i class="layui-icon layui-icon-edit"></i></button>
+    <button class="pear-btn pear-btn-danger pear-btn-sm" lay-event="remove"><i class="layui-icon layui-icon-delete"></i></button>
+    {{# } }}
+    <button class="pear-btn pear-btn-sm" id="more{{d.Id}}"><i class="layui-icon layui-icon-triangle-d"></i></button>
+
+</script>
+<script type="text/html" id="user-toolbar">
+    <button class="pear-btn pear-btn-primary pear-btn-md" lay-event="add">
+        <i class="layui-icon layui-icon-add-1"></i>
+        新增
+    </button> 
+</script>

@@ -1,0 +1,31 @@
+﻿@using MEIZU.Tools
+@model MEIZU.MVC.Models.MeiZuVm.PhoneTypeVM  
+
+@{
+    ViewBag.Title = "添加根节点";
+}
+
+@using (Html.BeginPearForm())
+{
+    @Html.EditorFor(m=>m.TypeName)
+    @Html.FormSubmitButton();
+}
+@section footer
+{
+    <script>
+        layui.form.on("submit(formSubmit)", data => {
+            layui.jquery.ajax({
+                url: "/MeiZu/CreatePhoneType",
+                type: "post",
+                data: data.field
+            }).done(res => {
+                if (res.code === 200) {
+                    window.parent.location.reload();
+                    window.parent.layui.layer.closeAll();
+                }else{ 
+                    window.parent.tools.notice.warning(res.msg);
+                }
+            });
+        });
+    </script>
+}

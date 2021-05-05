@@ -1,0 +1,291 @@
+﻿@using System.Web.Script.Serialization
+@using MEIZU.Tools
+@model MEIZU.Tools.PearTableData
+@{
+    var jscoder =new JavaScriptSerializer();
+    string data = null;
+    if (Model.Data != null)
+    {
+        data =jscoder.Serialize(Model.Data); 
+    }
+    var limits = jscoder.Serialize(Model.Limits);
+    var where = jscoder.Serialize(Model.WhereObj);
+    
+    if (Model.IsShowDelete || Model.IsShowDetail || Model.IsShowEdit)
+    {
+        Model.PearTableFeilds.Add(new PearTableFeild 
+        {
+            title = "操作", 
+            @fixed = "right",
+            toolbar = "#barDemo_"+Model.Id,
+            width = 200
+        });    
+    }
+    var cols = jscoder.Serialize(Model.PearTableFeilds.Select(m=>new{m.field,m.title,m.hide,m.templet,m.type,m.width,m.toolbar,m.@fixed}));
+
+    var rowBtns = jscoder.Serialize(Model.RowBtns.Select(m => new
+    {
+        txt=m.Text,
+        @event=m.EventName,
+        where=m.ShowWhere
+    }));
+    
+}
+<!-- 模糊查询条件-->
+@if (Model.PearTableFeilds.Count(m => m.IsSearch) > 0)
+{ 
+    using (Html.BeginPearForm("search_"+Model.Id))
+    {
+        <div class="layui-form-item">
+            
+             @foreach (var feild in Model.PearTableFeilds)
+                {
+                    if (feild.IsSearch)
+                    {
+                        
+                        <label class="layui-form-label">@feild.title</label>
+                                                                    
+                        <div class="layui-input-inline">
+                            @if (feild.SearchType!=null && feild.SearchType.IsEnum)
+                            {
+                             <select name="@feild.field">
+                                 <option value=""></option>
+                                 @{
+                                     int i = 0;
+                                 }
+                                 @foreach (var item in Enum.GetNames(feild.SearchType))
+                                 {
+                                     <option value="@item">@item</option>
+                                 }
+                             </select>
+                            } else if(feild.SearchUseDictionary)
+                            {
+                                <select name="@feild.field">
+                                    <option value=""></option>
+                                    @{
+                                        int i = 0;
+                                    }
+                                    @foreach (var item in feild.GetDicByGroupName())
+                                    {
+                                        <option value="@item.Id">@item.Value</option>
+                                    }
+                                </select>
+                            }else if(feild.SearchUseList)
+                            {
+                                <select name="@feild.field">
+                                    <option value=""></option>
+                                    @{
+                                        int i = 0;
+                                    }
+                                    @foreach (var item in feild.SearchList)
+                                    {
+                                        <option value="@item.Value">@item.Text</option>
+                                    }
+                                </select>
+                            }else if(feild.SearchType == typeof(DateTime))
+                            {
+                                <input type="text" name="@feild.field" id="@feild.field" placeholder="" class="layui-input">
+                                <script>
+                                   window.addEventListener("load",()=>{
+                                       layui.laydate.render({
+                                            elem: '#@feild.field',
+                                            @if (feild.IsDateTimeRange)
+                                            {
+                                                @:range: true, 
+                                            }
+                                            @if (!string.IsNullOrEmpty(feild.DateRangeMinVal) )
+                                            {
+                                                @:min: '@(feild.DateRangeMinVal)',
+                                                  
+                                            }
+                                            @if (!string.IsNullOrEmpty(feild.DateRangeMaxVal) )
+                                            {
+                                                @:max: '@(feild.DateRangeMaxVal)',
+                                                  
+                                            }
+                                       });
+                                   });
+                                </script>                                                                         
+                            }
+                            else
+                            {
+                                <input type="text" name="@feild.field" placeholder="" class="layui-input">
+                            }
+                            
+                        </div>
+                       
+                    }
+                }
+          
+             
+            <button class="pear-btn pear-btn-md pear-btn-primary" lay-submit="" lay-filter="user_query_@(Model.Id)">
+                <i class="layui-icon layui-icon-search"></i>
+                查询
+            </button>
+        </div>
+        <script> 
+        window.addEventListener("load",function (){
+             layui.form.on('submit(user_query_@(Model.Id))', function(data){
+                console.info(data);
+                
+                
+                
+                let where = data.field;
+                renderTable_@(Model.Id)(where);
+                return false;
+             });
+        })
+           
+        </script>
+    } 
+}
+
+
+<table id="@Model.Id"     lay-filter="@Model.Id"></table>
+@if (Model.IsShowDelete || Model.IsShowDetail || Model.IsShowEdit)
+{
+    <script type="text/html" id="barDemo_@(Model.Id)">
+        @if(Model.IsShowDetail)
+        {
+            <button class="pear-btn  pear-btn-sm" lay-event="detail" title="明细"><i class="layui-icon layui-icon-read"></i></button>
+        }
+        @if(Model.IsShowEdit)
+        {
+            <button class="pear-btn pear-btn-primary pear-btn-sm" lay-event="edit" title="修改"><i class="layui-icon layui-icon-edit"></i></button>
+        }
+        @if(Model.IsShowDelete)
+        {
+            @:{{#  if(@Html.Raw(Model.DeleteWhere)){ }}
+            <button class="pear-btn pear-btn-danger pear-btn-sm" lay-event="remove" title="删除"><i class="layui-icon layui-icon-delete"></i></button>
+            @:{{# } }}   
+        }
+        @if (Model.RowBtns != null && Model.RowBtns.Count > 0)
+        {
+            @:{{#  if(@Html.Raw(Model.RowBtnsShowWhere)){ }}
+            <button class="pear-btn pear-btn-sm more_@(Model.Id)"><i class="layui-icon layui-icon-triangle-d"></i></button>
+            @:{{# } }}                                                                                                      
+        }
+    </script>
+}
+
+@if (Model.OtherBtns.Count > 0)
+{
+    <script type="text/html" id="leftbar_@(Model.Id)">
+        @foreach (var kv in Model.OtherBtns)
+        {
+            <a class="pear-btn pear-btn-primary pear-btn-md" lay-event="@kv.Value">@kv.Key</a>
+        }
+    </script>
+}
+
+
+<script >  
+    function renderTable_@(Model.Id)(where=null){
+        layui.use( 'dropdown' , function() {
+            layui.table.render({
+                elem:"#@Model.Id",
+                @if (!string.IsNullOrEmpty(data))
+                {
+                    @:data:@Html.Raw(data),
+                }
+                cols:[@Html.Raw(cols)],
+                limits:@limits,
+                limit:@Model.Limit,
+                page:true,
+                where,
+                @if (!string.IsNullOrEmpty(Model.Url))
+                { 
+                    @:url:'@Html.Raw(Model.Url)', 
+                    @:method:'@Model.Method',                           
+                }
+                @if (Model.OtherBtns.Count > 0)
+                { 
+                    @:toolbar:'#leftbar_@(Model.Id)',
+                }
+                defaultToolbar: ['filter', 'exports', 'print' ] , 
+                skin: 'line',
+                done: function(res) {
+                    //获取行数据
+                    let trObjs = layui.jquery("tr[data-index]")
+                    for (let i = 0; i < res.data.length; i++) {
+                        let d = res.data[i];
+                        let btns = @Html.Raw(rowBtns);
+                        let index = 0;
+                        //筛选下拉按钮
+                        for (const btn of btns) {
+                            let where = eval(btn.where);
+                            if (!where){
+                                btns.splice(index, 1);
+                                continue;
+                            }
+                            index++;
+                        }
+                        //把满足要求的按钮显示出来
+                        layui.dropdown.suite( trObjs.eq(i).find(".more_@Model.Id"), {
+                            align: 'left',
+                            menus: btns
+                        });
+                    }
+                }
+            });    
+        }); 
+        }
+    window.addEventListener("load",function(){
+       
+       renderTable_@(Model.Id)(@Html.Raw(where));
+         
+    })
+    function openEndFunc() {
+        layui.table.reload("@Model.Id"); 
+    }
+</script>
+
+@if (Model.IsShowDelete || Model.IsShowDetail || Model.IsShowEdit)
+{
+    <script>
+        window.addEventListener("load",
+            function() {
+                layui.table.on("tool(@Model.Id)",
+                    function(obj) {
+                        let data = obj.data; //获得当前行数据
+                        let layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+                        let tr = obj.tr; //获得当前行 tr 的 DOM 对象（如果有的话）
+
+                        if (layEvent === 'detail') { //查看
+                            //layui.layer.msg("detail"+obj.data);
+                            @if (Model.IsShowDetail){
+                                 @(Model.DetailFunc)@:(obj);
+                            }
+                        } else if (layEvent === 'remove') { //删除
+                            @if (Model.IsShowDelete){
+                                @(Model.DeleteFunc)@:(obj);
+                            }
+                        } else if (layEvent === 'edit') { //编辑
+                            @if (Model.IsShowEdit)
+                            {
+                                  @(Model.EditFunc)@:(obj);
+                            }  
+                     
+                        }
+                        @foreach (var rowbtn in Model.RowBtns)
+                        {
+                            @Html.Raw($"else if(layEvent === '{rowbtn.EventName}') {rowbtn.EventName}(obj)\n")
+                            
+                        }
+                    });
+                @* 头部左侧菜单*@
+                layui.table.on("toolbar(@Model.Id)", function(obj) {
+                    console.info(obj.event);
+                    switch (obj.event) {
+                        @foreach (var kv in Model.OtherBtns)
+                        { 
+                           
+                    @Html.Raw(@"case '"+kv.Value+@"' : "+kv.Value+"(obj); " + "break;")
+   
+                        }
+
+                }
+            });
+            });
+    </script>
+}

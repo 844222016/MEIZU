@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            border: 0;
+            padding: 0;
+            margin: 0 ;
+            box-sizing: border-box;
+        }
+        li{
+            list-style: none;
+        }
+        .warp{
+            width: 100%;
+            height:680px;
+            position: relative;
+            padding-left: 0;
+        }
+        .list{
+            width: 100%;
+            height: 100%;
+            position: relative;
+            padding-left: 0;
+        }
+        .item{
+            overflow: hidden;
+            font-size: 50px;
+            color: white;
+            list-style: none;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1000ms;
+        }
+        .item img{ 
+            height:680px;
+            position: absolute;
+            left: 50%;
+            top: 0;
+            transform: translateX(-50%);
+        }
+        .item:nth-child(1){
+            width: 100%;
+            height: 100%;
+            background-color: red;
+        }
+        .item:nth-child(2){
+            width: 100%;
+            height: 100%;
+            background-color: blueviolet;
+        }
+        .item:nth-child(3){
+            width: 100%;
+            height: 100%;
+            background-color: blue;
+        }
+        .item:nth-child(4){
+            width: 100%;
+            height: 100%;
+            background-color: green;
+        }
+        .btn{
+            position: absolute;
+            height: 50px;
+            width: 50px;
+            top: 175px;
+            z-index: 100;
+        }
+        .btn:last-child{
+            right: 0;
+        }
+        .dotlist{
+            position: absolute;
+            bottom: 0;
+            right: 328.5px;
+            z-index: 10000;
+            width: 143px;
+            padding: 0;
+        }
+        .dot{
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border: 1px solid black;
+            cursor: pointer;
+            border-radius: 50%;
+            margin: 10px;
+        }
+        .active{
+            opacity: 1;
+            z-index: 10;
+        }
+        .rander{
+            background-color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="warp">
+        <ul class="list">
+            <li class="item active"><img src="../Images/Index/popup1.jpg" alt=""></li>
+            <li class="item"><img src="../Images/Index/popup2.jpg" alt=""></li>
+            <li class="item"><img src="../Images/Index/popup3.jpg" alt=""></li>
+            <li class="item"><img src="../Images/Index/popup4.jpg" alt=""></li>
+            <li class="item"><img src="../Images/Index/Phone1.jpg" alt=""></li>
+        </ul>
+        <ul class="dotlist">
+            <li class="dot rander"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+            <li class="dot"></li>
+        </ul>
+        <button class="btn" id="Left"> < </button>
+        <button class="btn" id="Right">></button>
+    </div>
+    <script src="../JS/PopupDemo.js" type="module"></script>
+</body>
+</html>

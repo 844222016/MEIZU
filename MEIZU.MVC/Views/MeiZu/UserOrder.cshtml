@@ -1,0 +1,29 @@
+﻿@using MEIZU.Tools
+@model MEIZU.MVC.Models.MeiZuVm.UserOrderVm
+@{
+    ViewBag.Title = "UserOrder";
+}
+@Html.DisplayFor(m=>m.UserTableData)
+
+@section footer
+{
+    <script>
+        //订单详情
+        function OrderDetail(data) {
+            console.info(data.data);
+            @Html.PearOpen("'/MeiZu/OrderDetail/'+data.data.Id","1000px","800px",false)
+        }
+        //修改订单
+        function OrderEdit(data) {
+            @Html.PearOpen("'/MeiZu/OrderEdit/'+data.data.Id","1000px","500px",false)
+        }
+        //删除订单   待定
+        function OrderDelete(data) {
+            console.info(data);
+        }
+        //禁用启用  待定
+        function enableState(data) {
+            console.info(data);
+        }
+    </script>
+}

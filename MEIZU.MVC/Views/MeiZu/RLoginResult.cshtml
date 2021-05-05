@@ -1,0 +1,96 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="~/MEIZU/Images/Index/HtmlLogo.ico">
+    <link rel="stylesheet" href="~/MEIZU/CSS/RLogin.css">
+    <title> Flyme 账号 - 登录</title>
+</head>
+<body>
+    <div class="content">
+        <div class="ucSimpleHeader">
+            <a href="~/MEIZU/Html/Index.html" class="meizuLogo">
+                <i class="i_icon"></i>
+            </a>
+        </div>
+        <div class="banner-box">
+            <div class="bg-box">
+                <form action="/MeiZu/RLoginResult" method="post" class="main-form">
+                    <div class="tab-title">
+                        <a class="linkABlue" id="toTelRegister" href="javascript:void(0)">登录 Flyme 账号</a>
+                    </div>
+                    <div class="cycode-selectbox">
+                        <span class="cycode-selected">
+                            <input type="text" value="账号" class="ipt-cycode">
+                            <i class="arrow-down"></i>
+                        </span>
+                        <input id="phone" name="phone" class="ipt-phone inp-focus" maxlength="11" placeholder="手机号码" autocomplete="off" value="">
+                    </div>
+                    <div class="cycode-selectbox" style="    top: 80px;">
+                        <input id="Pwd" name="Pwd" class="ipt-phone inp-focus" maxlength="11" placeholder="登录密码" autocomplete="off" type="password">
+                    </div>
+                    <a id="nextStep" class="fullBtnBlue register-btn" data-step="1" style="position: relative; top: 90px; cursor: pointer;">
+
+                    </a>   <button type="submit" class="btn" id="btn">登录</button>
+                    <div class="tip-box">
+                        <i class="err-ico"></i>
+                        <span class="tip-font">请先同意用户条款</span>
+                        <span class="close-ico"></span>
+                    </div>
+                </form>
+            </div>
+        </div>      
+        <div id="flymeFooter" class="footerWrap">
+            <div class="footerInner">
+                <div class="footer-layer1">
+                    <div class="footer-innerLink">
+                        <a href="" target="_blank" title="关于魅族">关于魅族</a>
+                        <img class="foot-line" src="~/MEIZU/Images/Rster/space.gif">
+                        <a href="" target="_blank" title="工作机会">工作机会</a>
+                        <img class="foot-line" src="~/MEIZU/Images/Rster/space.gif">
+                        <a href="" target="_blank" title="联系我们">联系我们</a>
+                        <img class="foot-line" src="~/MEIZU/Images/Rster/space.gif">
+                        <a href="" target="_blank" title="法律声明">法律声明</a>
+                        <img class="foot-line" src="~/MEIZU/Images/Rster/space.gif">
+                        <a href="" target="_blank" title="常见问题">常见问题</a>
+                        <img class="foot-line" src="~/MEIZU/Images/Rster/space.gif">
+
+                        <div href="javascript:void(0);" id="globalName" class="footer-language" title="简体中文">
+                            简体中文&nbsp;&nbsp;&nbsp;
+                            <div id="globalContainer" class="footer-language_menu">
+                                <a href="" id="i18n-link" title="English" class="ClobalItem">English</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="footer-service">
+                        <span class="service-label">客服热线</span>
+                        <span class="service-num">400-788-3333</span>
+                        <a id="service-online" class="service-online" href="javascript:void(0);" title="在线客服">在线客服</a>
+                    </div>
+                    <div class="footer-outerLink">
+                        <a class="footer-sinaMblog" href="" target="_blank"><i class="i_icon"></i></a>
+
+                        <a id="footer-weChat" class="footer-weChat" href="javascript:void(0);" target="_blank"><i class="i_icon"></i></a>
+                        <a class="footer-qzone" href="" target="_blank"><i class="i_icon"></i></a>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <div id="flymeCopyright" class="copyrightWrap">
+                    <div class="copyrightInner">
+                        <span>©
+                        <script type="text/javascript">document.write(new Date().getFullYear());</script>2021 Meizu Telecom Equipment Co., Ltd. All rights reserved.</span>
+                        <a href="" class="linkAGray" target="_blank">备案号: 粤ICP备13003602号-4</a>
+                        <a href="" class="linkAGray" target="_blank">经营许可证编号: 粤B2-20130198</a>
+                        <a target="_blank" href="" hidefocus="true" class="linkAGray">营业执照</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/MEIZU/JS/RLogin.js" type="module"></script>
+    <script src="~/MEIZU/JS/Controls/mutex.js" type="module"></script>
+</body>
+</html>

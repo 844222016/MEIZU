@@ -1,0 +1,47 @@
+﻿@using MEIZU.Tools
+@model MEIZU.MVC.Models.UserSys.PicViewModel
+
+@{
+    ViewBag.Title = "首页轮播";
+}
+@Html.DisplayFor(m=>m.PicTableData)
+<script type="text/html" Id="ManagerEnableTemplate"> 
+    <span class="layui-badge layui-bg-{{d.IsEnable == true?'blue':'orange'}}">{{d.IsEnable == true?"启用":"禁用"}}</span>
+</script>
+<script>
+    function PicEdit(data) {
+        @Html.PearOpen("'/MeiZu/EditIndexPic/'+data.data.Id")
+    }
+
+    function enableState(res) {
+        var data = res.data;
+        layui.jquery.ajax({
+            url: "/MeiZu/EditPicState",
+            type: "post",
+            data: {
+                Id: data.Id
+            },
+    }).done(res => {
+            if (res.code == 200) {
+                tools.notice.success("修改成功");
+                layui.table.reload("PicTable");
+            } else {
+                tools.notice.warming("修改失败" + res.msg);
+            }
+        });
+    }
+    function PicDelete(data) {
+        console.info(data);
+        layui.jquery.ajax({
+            url: "/MeiZu/DeleteIndexPic",
+            type: "post",
+            data: data
+        }).done(res => {
+            if (res.code == 200) {
+
+            } else {
+
+            }
+        });
+    }
+</script>

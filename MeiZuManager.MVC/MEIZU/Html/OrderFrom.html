@@ -1,0 +1,652 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的订单</title>
+    <link rel="icon" href="../Images/Index/HtmlLogo.ico">
+    <link rel="stylesheet" href="../CSS/Index1.css">
+    <link rel="stylesheet" href="../CSS/button1.css">
+    <link rel="stylesheet" href="../CSS/header1.css">
+    <link href="../CSS/OrderFrom.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="_bodr">
+        <div class="header-container">
+            <div class="header-warp">
+                <div class="logo">
+                    <a href="./Index.html" class="LogoText">
+                        <svg width="108px" fill="#008cff" height="21px" viewBox="0 0 108 21" version="1.1" xmlns="http://www.w3.org/2000/svg"><g id="页面-1" stroke="none" stroke-width="1" fill-rule="evenodd"><g id="编组" transform="translate(0.999800, 0.999800)"><polygon id="Fill-1" points="53.3530588 20 56.6877647 20 56.6877647 0 53.3530588 0"></polygon><path d="M103.371647,0.000176470588 L103.371647,15.0003235 C103.371647,15.9199718 102.625176,16.6667451 101.704588,16.6667451 L98.3698824,16.6667451 L96.7022353,16.6667451 L91.7004706,16.6667451 C90.7798824,16.6667451 90.0334118,15.9199718 90.0334118,15.0003235 L90.0334118,0.000176470588 L86.6987059,0.000176470588 L86.6987059,15.8335343 C86.6987059,18.1344193 88.5651765,20.0001765 90.8669412,20.0001765 L96.7022353,20.0001765 L98.3698824,20.0001765 L102.538118,20.0001765 C104.839882,20.0001765 106.706353,18.1344193 106.706353,15.8335343 L106.706353,0.000176470588 L103.371647,0.000176470588 Z" id="Fill-2"></path><path d="M22.5082353,0.000176470588 L15.0052941,0.000176470588 L11.6711765,0.000176470588 L4.16823529,0.000176470588 C1.86588235,0.000176470588 -2.71678105e-14,1.865236 -2.71678105e-14,4.16657365 L-2.71678105e-14,19.9990005 L3.33470588,19.9990005 L3.33470588,4.99973549 C3.33470588,4.07896524 4.08117647,3.33282383 5.00176471,3.33282383 L11.6711765,3.33282383 L11.6711765,20.0001765 L15.0052941,20.0001765 L15.0052941,3.33282383 L21.6747059,3.33282383 C22.5952941,3.33282383 23.3423529,4.07896524 23.3423529,4.99973549 L23.3423529,19.9990005 L26.6764706,19.9990005 L26.6764706,4.16657365 C26.6764706,1.865236 24.8105882,0.000176470588 22.5082353,0.000176470588" id="Fill-4"></path><path d="M31.6787647,4.16717644 L31.6787647,4.16717644 L31.6787647,15.8336471 C31.6787647,18.1345997 33.5446471,20.0004118 35.847,20.0004118 L48.3517059,20.0004118 L48.3517059,16.6668824 L36.6805294,16.6668824 C35.7593529,16.6668824 35.0128824,15.9212632 35.0128824,15.0004118 L35.0128824,13.3333531 L35.0128824,11.6674704 L48.3517059,11.6674704 L48.3517059,8.33394111 L35.0128824,8.33394111 L35.0128824,5.00041176 C35.0128824,4.0795603 35.7593529,3.33335308 36.6805294,3.33335308 L48.3517059,3.33335308 L48.3517059,0.000411764706 L35.847,0.000411764706 C33.5446471,0.000411764706 31.6787647,1.8656358 31.6787647,4.16717644" id="Fill-6"></path><path d="M81.6971176,2.50017657 C81.6971176,1.11948741 80.5771176,0.000470588235 79.1959412,0.000470588235 L61.6894706,0.000470588235 L61.6894706,3.3334119 L76.7135882,3.3334119 L62.523,15.6367166 L62.5253529,15.6384807 C62.0135882,16.0965543 61.6894706,16.7598496 61.6894706,17.5001766 C61.6894706,18.8814538 62.8094706,20.0004706 64.1900588,20.0004706 L81.6971176,20.0004706 L81.6971176,16.6669412 L66.6653529,16.6669412 L80.7418235,4.46242519 C81.3224118,4.0049396 81.6971176,3.29695418 81.6971176,2.50017657" id="Fill-8"></path></g></g></svg>
+                    </a>
+                    <a href="ShoppingCart.html" class="shoopingcar">
+                        <em>0</em>
+                    </a>
+                    <div class="header-textDiv">
+                        <div class="header-user">
+                            <div class="header-user-img">
+                                <img src="../Images/Index/icon-default-user.png" alt="" style="    width: 20px;
+                                     height: 20px;
+                                     margin-right: 36px;">
+                                <ul class="meizu-header-user-dropdown">
+                                    <li>
+                                        <a href="../Html/RLogin.html">立即登录</a>
+                                    </li>
+                                    <li>
+                                        <a href="../Html/Rster.html">立即注册</a>
+                                    </li>
+                                    <li>
+                                        <a href="">我的订单</a>
+                                    </li>
+                                    <li>
+                                        <a href="">M码通道</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="header-search">
+                            <input type="text" placeholder="魅族 17">
+                            <a class="meizu-header-icon-search" data-bh="click_public_yt_search" data-mtype="gw_public_yt_search">
+                                <svg width="17px" height="14px" viewBox="0 0 17 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g transform="translate(-1469.000000, -32.000000)" fill="#666666" fill-rule="nonzero">
+                                            <g>
+                                                <g>
+                                                    <g transform="translate(1323.000000, 25.000000)">
+                                                        <g transform="translate(139.000000, 0.000000)">
+                                                            <path d="M14,20.75 C10.2720779,20.75 7.25,17.7279221 7.25,14 C7.25,10.2720779 10.2720779,7.25 14,7.25 C17.7279221,7.25 20.75,10.2720779 20.75,14 C20.75,17.7279221 17.7279221,20.75 14,20.75 Z M14,19.25 C16.8994949,19.25 19.25,16.8994949 19.25,14 C19.25,11.1005051 16.8994949,8.75 14,8.75 C11.1005051,8.75 8.75,11.1005051 8.75,14 C8.75,16.8994949 11.1005051,19.25 14,19.25 Z" id="Oval"></path>
+                                                            <path d="M19.0640714,18.1103001 C18.7270119,17.8695434 18.6489432,17.4011308 18.8896999,17.0640714 C19.1304566,16.7270119 19.5988692,16.6489432 19.9359286,16.8896999 L23.4359286,19.3896999 C23.7729881,19.6304566 23.8510568,20.0988692 23.6103001,20.4359286 C23.3695434,20.7729881 22.9011308,20.8510568 22.5640714,20.6103001 L19.0640714,18.1103001 Z" id="Line-2"></path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
+                        <ul class="header-item showitem">
+                            <li class="header-item-bgshow"><a href="#">手机</a></li>
+                            <li class="header-item-bgshow"><a href="#">声学</a></li>
+                            <li class="header-item-bgshow"><a href="#">配件</a></li>
+                            <li class="header-item-bgshow"><a href="#">生活</a></li>
+                        </ul>
+                        <ul class="header-item Runitem">
+                            <li><a href="">Flyme</a></li>
+                            <li><a href="">服务</a></li>
+                            <li><a href="">专卖店</a></li>
+                            <li><a href="">社区</a></li>
+                            <li><a href="">企业服务</a></li>
+                        </ul>
+                        <ul class="header-item LastItem">
+                            <li><a href="javascript:void(0)">APP下载</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="header-BackGround" style="overflow: hidden;">
+                <div class="header-BackGround-ShowList">
+
+                </div>
+            </div>
+            <div class="meizu-header-sub">
+                <div>
+                    <img src="../Images/Index/meizu-header-sub.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="her_Order w">
+            <div class="crumbs">
+                <a href="#">首页 &gt;&nbsp;</a>
+                <a href="#">我的商城 &gt;&nbsp;</a>
+                <a href="#" class="active">我的订单&nbsp;</a>
+            </div>
+        </div>
+        <div class="main w">
+            <div class="left-nav f-fl">
+                <div class="nav-main">
+                    <a href="javascript:;" class="type-title">
+                        <i>
+                            <img src="../Images/Oorder/01_03.jpg" alt="">
+                        </i> 订单中心
+                        <a href="javascript:;" class="ml">
+                            我的订单
+                        </a>
+                    </a>
+                    <a href="javascript:;" class="type-title">
+                        <i>
+                            <img src="../Images/Oorder/02_03.jpg" alt="">
+                        </i> 个人中心
+                        <a href="javascript:;" class="ml">
+                            地址管理
+                        </a>
+                        <a href="javascript:;" class="ml">
+                            消息提醒
+                        </a>
+                        <a href="javascript:;" class="ml">
+                            意见反馈
+                        </a>
+
+                    </a>
+                    <a href="javascript:;" class="type-title">
+                        <i>
+                            <img src="../Images/Oorder/03_03.jpg" alt="">
+                        </i> 资产中心
+                        <a href="javascript:;" class="ml">
+                            我的优惠券
+                        </a>
+                        <a href="javascript:;" class="ml">
+                            我的红包
+                        </a>
+                        <a href="javascript:;" class="ml">
+                            我的回购金
+                        </a>
+
+                    </a>
+                    <a href="javascript:;" class="type-title">
+                        <i>
+                            <img src="../Images/Oorder/04_03.jpg" alt="">
+                        </i> 服务中心
+                        <a href="javascript:;" class="ml">
+                            退款/换货跟踪
+                        </a>
+                        <a href="javascript:;" class="ml">
+                            以旧换新
+                        </a>
+
+                    </a>
+
+                </div>
+            </div>
+            <div class="right-content f-fr">
+                <div class="order-main">
+                    <div class="type-tab-btn">
+                        <a href="javascript:;" class="allOrder">全部订单</a>
+                        <i class="line">|</i>
+                        <a href="javascript:;" class="allOrder">待付款</a>
+                        <i class="line">|</i>
+                        <a href="javascript:;" class="allOrder">待发货</a>
+                        <i class="line">|</i>
+                        <a href="javascript:;" class="allOrder">已发货</a>
+                        <i class="line">|</i>
+                        <a href="javascript:;" class="allOrder">其他</a>
+                        <i class="line">|</i>
+
+                    </div>
+                    <div class="list-head">
+                        <ul class="clearfix">
+                            <li class="w50">
+                                <select id="checkType" class="check-type">
+                                    <option value="0">近三个月的订单</option>
+                                    <option value="1">全部订单</option>
+                                </select> 订单明细
+                            </li>
+                            <li class="w125">售后</li>
+                            <li class="w125">金额</li>
+                            <li class="w125">状态</li>
+                            <li class="w125">操作</li>
+                        </ul>
+                    </div>
+                    <div id="tableList" class="type-contain ui-load-container">
+                        <div class="Short_Information" style="display: block;">
+                            <table style="width: 100%; border:1px" border="1px">
+                                <!-- 数据表格 -->
+                                <tr class="m_meterLoss">
+                                    <th colspan="4" style="background-color: #fafafc; line-height: 40px;padding-left: 0px;">
+                                        <div style="display:block; color: #bdbdbd; text-align:left">
+                                            下单时间: <span class="order_time" style="color: black">
+                                                12312312312321 &nbsp;&nbsp;&nbsp;&nbsp;
+                                            </span> 订单号: <span class="orderNumber" style="color: black">123213123123</span>
+                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a style="color: #008cff;">联系客服</a>
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="m_merchandise_List">
+                                            <div class="m_merchandise_Item ">
+                                                <img src="#" alt="Alternate Text" style="background-color: #008cff" />
+                                                <div class="m_merchandise_Item_Content">
+                                                    <p>魅族 18 全网通公开版 踏雪 8+128GB</p>
+                                                    <p>充电套餐</p>
+                                                    <p>￥4598</p>
+                                                </div>
+                                            </div>
+                                            <div class="m_merchandise_Item ">
+                                                <img src="#" alt="Alternate Text" style="background-color: #008cff" />
+                                                <div class="m_merchandise_Item_Content">
+                                                    <p>魅族 18 全网通公开版 踏雪 8+128GB</p>
+                                                    <p>充电套餐</p>
+                                                    <p>￥4598</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="priceDiv">
+                                            ￥ 4538
+                                            <span class="huabei j-huabei">花呗分期</span>
+                                            <i class="hb-arr j-hb-item hide"></i>
+                                            <p class="hb-describ j-hb-item hide">¥1512.66x3期(手续费0.00元/期)</p>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>已取消<br></div>
+                                    </td>
+                                    <td>
+                                        <div>查看详情<br></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="Short_Information">
+                            <p class="J_no_data_des">您暂无待付款订单，赶快去下单吧！</p>
+                        </div>
+                        <div class="Short_Information">
+                            <p class="J_no_data_des">您暂无待发货订单，赶快去下单吧！</p>
+                        </div>
+                        <div class="Short_Information">
+                            <p class="J_no_data_des">您暂无已发货订单，赶快去下单吧！</p>
+                        </div>
+                        <div class="Short_Information">
+                            <p class="J_no_data_des">您暂无其他订单，赶快去下单吧！</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="meizu">
+            <div id="meizu-footer" class="meizu-footer">
+                <div class="meizu-footer-link">
+                    <div class="meizu-footer-wrap">
+                        <div class="meizu-row clearfix">
+                            <ul class="meizu-footer-service" id="meizu-footer-service" style="margin-top: 30px;">
+                                <li>
+                                    <a href="" target="_blank">
+                                        <img src="../Images/Index/buttom1.png" alt="">
+                                        <span>满80免运费</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" target="_blank">
+                                        <img src="../Images/Index/buttom2.png" alt="">
+                                        <span>100+ 城市次日送达</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" target="_blank">
+                                        <img src="../Images/Index/buttom3.png" alt="">
+                                        <span>7天无理由退货</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" target="_blank">
+                                        <img src="../Images/Index/buttom4.png" alt="">
+                                        <span>15天换货保障</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" target="_blank">
+                                        <img src="../Images/Index/buttom5.png" alt="">
+                                        <span>1年免费保修</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="" target="_blank">
+                                        <img src="../Images/Index/buttom6.png" alt="">
+                                        <span>上门快修</span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="onlive-server meizu-footer-hotline" style="margin-top: 10px;">
+                                <span>周一至周日 8:00-20:00</span>
+                                <p class="tel">400-788-3333</p>
+                                <a class="onlive-btn" href="javascript:void(0)">
+                                    在线客服
+                                </a>
+                            </div>
+                        </div>
+                        <hr class="footer-hr">
+                        <div class="meizu-footer-co">
+                            <div class="meizu-row">
+                                <div class="meizu-footer-info">
+                                    <div class="meizu-footer-info-left">
+                                        <ul>
+                                            <li>
+                                                <a href="">了解魅族</a>
+                                            </li>
+                                            <li>
+                                                <a href="">加入我们</a>
+                                            </li>
+                                            <li>
+                                                <a href="">联系我们</a>
+                                            </li>
+                                            <li>
+                                                <a href="">Flyme</a>
+                                            </li>
+                                            <li>
+                                                <a href="">魅族社区</a>
+                                            </li>
+                                            <li>
+                                                <a href="">天猫旗舰店</a>
+                                            </li>
+                                            <li>
+                                                <a href="">问题反馈</a>
+                                            </li>
+                                            <li>
+                                                <a href="">线上销售授权名单公示</a>
+                                            </li>
+                                            <li>
+                                                <a href="">出版物经营许可证</a>
+                                            </li>
+                                            <div class="lilast">
+                                                <i class="icon-lang-logo icon-lang-logo-cn"></i>
+                                                <span>简体中文</span>
+                                                <ul>
+                                                    <li>
+                                                        <i class="icon-lang-logo icon-lang-logo-cn"></i>
+                                                        <span>简体中文</span>
+                                                    </li>
+                                                    <li>
+                                                        <i class="icon-lang-logo icon-lang-logo-cn"></i>
+                                                        <span>繁体中文</span>
+                                                    </li>
+                                                    <li>
+                                                        <i class="icon-lang-logo icon-lang-logo-cn"></i>
+                                                        <span>English</span>
+                                                    </li>
+                                                    <li>
+                                                        <i class="icon-lang-logo icon-lang-logo-cn"></i>
+                                                        <span>Русский</span>
+                                                    </li>
+                                                    <li>
+                                                        <i class="icon-lang-logo icon-lang-logo-cn"></i>
+                                                        <span>Türkiye</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </ul>
+                                        <div class="meizu-footer-certificate">
+                                        </div>
+                                        <div class="ii-subscribe">
+                                            <br>
+                                            ©2020 Meizu Telecom Equipment Co., Ltd. All rights reserved.
+                                            <a href="">粤ICP备13003602号</a>
+                                            <a href="">合字B2-20170010 </a>
+                                            <a href="">营业执照</a>
+                                            <a href="">法律声明</a>
+                                            <a href="" class="jinghun">
+                                                <span>
+                                                    <i></i>
+                                                    粤公网安备 44049102496009 号
+                                                </span>
+                                            </a>
+                                            <a href="">
+                                                <i></i>
+                                            </a>
+                                            <a href="">
+                                                <i></i>
+                                            </a>
+                                            <a href="">
+                                                <i></i>
+                                            </a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                        </div>
+
+                        <div class="ii-subscribes" style="position: relative;top: -85px;right: -117px;width: 300px;overflow: hidden;transform:translate(0,40px)">
+                            <ul class="meizu-footer-service" id="meizu-footer-service" style="margin-top: 30px;">
+                                <li style="width: 50px;height: 20px;margin: 0;padding: 0;" class="weibo">
+                                    <a href="" target="_blank">
+                                        <img src="../Images/Index/reweima1-1.png" alt="" style="width: 25px;">
+                                    </a>
+                                </li>
+                                <li style="width: 50px;height: 20px;margin: 0;padding: 0;" class="weixin">
+                                    <a href="" target="_blank" style="margin: 0;padding: 0;">
+                                        <img src="../Images/Index/reweima2-2.png" alt="" style="width: 25px;">
+                                    </a>
+                                </li>
+                                <li style="width: 50px;height: 20px;margin: 0;padding: 0;">
+                                    <a href="" target="_blank" style="margin: 0;padding: 0;">
+                                        <img src="../Images/Index/reweima3-3.png" alt="" style="width: 25px;">
+                                    </a>
+                                </li>
+                                <li style="width: 50px;height: 20px;margin: 0;padding: 0;">
+                                    <a href="" target="_blank" style="margin: 0;">
+                                        <img src="../Images/Index/reweima4-4.png" alt="" style="width: 25px;">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="weiImg">
+                            <img src="../Images/Index/reweima1.png" alt="">
+                            <img src="../Images/Index/reweima2.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="html/template" id="ListOneCopy">
+            <div class="ListOne  List">
+                <ul>
+                    <li>
+                        <a href="/MEIZU/PhoneDesc/1">
+                            <img src="http://localhost:2080/MEIZU/Images/Index/Phone1.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/Phone2.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/Phone3.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/Phone4.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/Phone5.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/Phone6.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/Phone7.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </script>
+        <script type="html/template" id="ListTwoCopy">
+            <div class="ListTwo List">
+                <ul>
+                    <li>
+                        <a href="">
+                            <img src="../Images/Index/aideo1.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/aideo2.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/aideo3.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/aideo4.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/aideo5.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/aideo6.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/aideo7.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </script>
+        <script type="html/template" id="ListThreeCopy">
+            <div class="ListThree  List">
+                <ul>
+                    <li>
+                        <a href="">
+                            <img src="../Images/Index/peijian1.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/peijian2.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/peijian3.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/peijian4.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/peijian5.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/peijian6.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/peijian7.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </script>
+        <script type="html/template" id="ListFourCopy">
+            <div class="ListFour  List">
+                <ul>
+                    <li>
+                        <a href="">
+                            <img src="../Images/Index/shenghuo1.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/shenghuo2.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/shenghuo3.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/shenghuo4.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/shenghuo5.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/shenghuo6.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                        <a href="">
+                            <img src="../Images/Index/shenghuo7.jpg" alt="">
+                            <i>魅族 17「AG梦幻独角兽」</i>
+                            <span></span>
+                            <em>￥3699</em>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </script>
+        <script src="../JS/header.js" type="module"></script>
+        <script src="../JS/Index.js" type="module"></script>
+        <script src="../JS/Controls/Popup.js" type="module"></script>
+        <script src="../JS/Controls/LoginState.js" type="module"></script>
+        <script src="../libs/jquery-3.5.1.js"></script>
+        <div class="store-cart store-cart-hide" style="top: 66px; left: 1263px;">
+            <div class="store-cart-tips-box">
+                <div class="store-cart-tips-content">
+                    <div class="store-cart-tips-icon xixi"></div>
+                    <div class="store-cart-tips-text">
+                        登录后可显示l<br>您账号中已加入的商品哦~
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../JS/Controls/OrderFrom.js" type="text/javascript"></script>
+</body>
+</html>

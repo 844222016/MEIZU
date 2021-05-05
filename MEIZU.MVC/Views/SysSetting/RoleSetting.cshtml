@@ -1,0 +1,46 @@
+﻿@using MEIZU.Tools
+@model MEIZU.Models.RoleIndexVm
+
+@{
+    ViewBag.Title = "角色管理"; 
+}
+
+@Html.DisplayFor(m=>m.RoleTableConfig)
+
+@section footer
+{
+    <script>
+     function create() {
+       @Html.PearOpen("'/SysSetting/RoleCreate'")
+     }
+        
+      function roleDelete(res){
+         layer.confirm(('确定要删除吗？'), {
+              btn: ['确定', '取消'] 
+         },(index)=>{
+             layui.jquery.ajax({
+                 url:"/SysSetting/RoleRemove",
+                 type:"Post",
+                 data:{
+                     id : res.data.Id
+                 }
+             }).done(res =>{
+                 layer.close(index);
+                 if (res.code == 200){
+                     window.tools.notice.success("删除成功");
+                      layui.table.reload("roleTable"); 
+                 }else{
+                     window.parent.tools.notice.warming("删除失败"+res.msg);
+                 }
+             });
+         })
+      }
+      function roleEdit(data){
+         @Html.PearOpen("'/SysSetting/RoleEdit/'+ data.data.Id");
+      }
+      function setRoleMenu(res){
+         @Html.PearOpen("'/SysSetting/SetRoleMenu/'+res.data.Id","1000px","400px",false);
+      }
+  
+    </script>
+}

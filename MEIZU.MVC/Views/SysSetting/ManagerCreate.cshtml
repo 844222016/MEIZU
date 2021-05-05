@@ -1,0 +1,31 @@
+﻿@using MEIZU.Tools
+@model MEIZU.Models.ManagerCreateVm
+
+@{
+    ViewBag.Title = "添加管理员"; 
+}
+
+@using (Html.BeginPearForm("ManagerCreateForm"))
+{
+    @Html.EditorFor(m=>m.LoginName)
+    @Html.EditorFor(m=>m.LoginPwd)
+    @Html.EditorFor(m=>m.FaceImage)
+    @Html.FormSubmitButton()
+}
+
+@section footer
+{
+    <script>
+        window.addEventListener("load",()=>{
+            layui.form.on("submit(formSubmit)",data =>{
+                layui.jquery.ajax({
+                    url:"/SysSetting/ManagerCreate",
+                    type:"post",
+                    data:data.field
+                }).done(res =>{
+                    @Html.ModalOpenDoneFucAndCloseIframeModal("添加成功");
+                })
+            })
+        })
+    </script>
+}

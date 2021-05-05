@@ -1,0 +1,40 @@
+﻿@using MEIZU.Tools
+@model MEIZU.Models.DictionaryEditVm
+
+@{
+    ViewBag.Title = "修改数据字典"; 
+}
+
+@using (Html.BeginPearForm("editDic"))
+{
+    @Html.HiddenFor(m=>m.Id)
+    @Html.EditorFor(m=>m.GroupName)
+    @Html.EditorFor(m=>m.Value)
+    <div class="layui-form-item">
+    <div class="layui-input-block">
+        <button lay-submit lay-filter="editDic" class="pear-btn pear-btn-danger">确认修改</button>
+    </div>
+    </div>
+}
+@section footer{
+    <script>
+        layui.form.on("submit(editDic)",function (data){ 
+            layui.jquery.ajax({
+                url:"/SysSetting/EditDictionary",
+                type:"post",
+                data:data.field
+            }).done(res =>{
+                if (res.code == 200){
+                    window.parent.tools.notice.success("更新成功");
+                    window.parent.layui.layer.closeAll();
+                }
+                else
+                    tools.notice.warning(res.msg)
+
+            }).fail(err=>{
+                tools.notice.warning("更新出错")
+            });
+            return false;
+        })
+    </script>
+}

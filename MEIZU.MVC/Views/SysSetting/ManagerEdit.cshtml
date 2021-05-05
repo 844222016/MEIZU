@@ -1,0 +1,34 @@
+﻿@model MEIZU.Models.ManagerUpdataVm
+@using MEIZU.Tools
+
+@{
+    ViewBag.Title = "修改管理员"; 
+}
+
+@using (Html.BeginPearForm("ManagerEditForm"))
+{
+    @Html.HiddenFor(m => m.Id)
+    @Html.EditorFor(m => m.LoginName)
+    @Html.EditorFor(m => m.LoginPwd)
+    @Html.EditorFor(m => m.FaceImage)
+    @Html.HiddenFor(m => m.CreateTime)
+    @Html.HiddenFor(m => m.LastLoginTime)
+    @Html.HiddenFor(m => m.IsEnable)
+    @Html.FormSubmitButton("确认修改","ManagerEditBtn")
+}
+
+@section footer
+{
+    <script>
+        layui.form.on("submit(ManagerEditBtn)",(data)=>{
+            // console.info(data.field)
+            layui.jquery.ajax({
+                url:"/SysSetting/ManagerEdit",
+                type:"post",
+                data:data.field
+            }).done(res => {
+                @Html.ModalOpenDoneFucAndCloseIframeModal("修改成功")
+            })
+        })
+    </script>
+}

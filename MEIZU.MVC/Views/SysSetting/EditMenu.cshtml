@@ -1,0 +1,51 @@
+﻿@using MEIZU.Tools
+@model MEIZU.Models.MenuEditVm
+
+@{
+    ViewBag.Title = "修改菜单数据"; 
+}
+
+@using (Html.BeginPearForm("editMenuForm"))
+{
+    @Html.HiddenFor(m=>m.Id)
+    @Html.EditorFor(m=>m.MenuName)
+    @Html.EditorFor(m=>m.Order)
+    if (Model.ParentId != null)
+    { 
+        @Html.PearSelect("父级菜单","ParentId",ViewBag.ParentMenus as SelectList)
+    }
+    @Html.EditorFor(m=>m.Icon)
+    @Html.EditorFor(m=>m.Url)
+    @Html.PearRadioButtonsGroup("菜单类型","MenuTypeId",ViewBag.MenuTypes as SelectList)
+    
+    @Html.FormSubmitButton()
+}
+
+@section footer
+{
+
+    <script>
+        
+       
+        layui.form.on("submit(formSubmit)", function (data) {
+            console.info(data.field);
+            layui.jquery.ajax({
+                url: "/SysSetting/EditMenu",
+                type: "post",
+                data: data.field
+            }).done(res => {
+                if (res.code == 200) {
+                    window.parent.tools.notice.success("更新成功");
+                    window.parent.layui.layer.closeAll();
+                    //window.parent.parent.location.reload();
+                    
+                } else {
+                    tools.notice.warning(res.msg);
+                }
+            }).fail(err => {
+                tools.notice.warning("更新出错");
+            });
+            return false;
+        });
+    </script>
+}

@@ -1,0 +1,71 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Login Page</title>
+		<!-- 样 式 文 件 -->
+		<link rel="stylesheet" href="/libs/component/pear/css/pear.css" />
+		<link rel="stylesheet" href="/libs/admin/css/other/login.css" />
+	</head>
+    <!-- 代 码 结 构 -->
+	<body background="/libs/admin/images/background2.svg" style="background-size: cover;">
+		<form class="layui-form" action="javascript:void(0);">
+			<div class="layui-form-item">
+				<img class="logo" src="/libs/admin/images/logo.png" />
+				<div class="title">Pear Admin</div>
+				<div class="desc">
+					明 湖 区 最 具 影 响 力 的 设 计 规 范 之 一
+				</div>
+			</div>
+			<div class="layui-form-item">
+				<input name="LoginName" placeholder="账 户 : admin " hover class="layui-input"  value="admin" />
+			</div>
+			<div class="layui-form-item">
+				<input name="LoginPwd" placeholder="密 码 : admin " type="password" hover class="layui-input" value="admin123"  />
+			</div>
+			  
+			<div class="layui-form-item">
+				<button type="button" class="pear-btn pear-btn-success login" lay-submit lay-filter="login">
+					登 入
+				</button>
+			</div>
+		</form>
+		<!-- 资 源 引 入 -->
+		<script src="/libs/component/layui/layui.js"></script>
+		<script src="/libs/component/pear/pear.js"></script>
+		<script>
+			layui.use(['form', 'button', 'popup','jquery'], function() {
+				var form = layui.form;
+				var button = layui.button;
+				var popup = layui.popup;
+				var $ = layui.jquery;
+                // 登 录 提 交
+				form.on('submit(login)', function(data) {
+				
+					console.info(data)
+					$.ajax({
+						url:"/Account/Login",
+						data:data.field,
+						type:"post"
+					}).done(function (res){
+						if (res.code === 200)
+							popup.success("登录成功", function() {
+								location.href = "/"
+							});
+						else if(res.code === 404){
+							popup.failure("账号已被冻结");
+						}else{
+							popup.failure("账号密码有误");
+						}
+					}) 
+					return false;
+				
+				});
+			})
+		</script>
+	</body>
+</html>

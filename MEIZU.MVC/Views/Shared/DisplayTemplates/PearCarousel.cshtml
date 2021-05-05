@@ -1,0 +1,32 @@
+﻿@model List<MEIZU.Tools.PearCarouselItem>
+
+
+<div class="layui-carousel" id="@ViewData.ModelMetadata.PropertyName">
+    <div carousel-item>
+        @foreach (var item in Model)
+        {
+            <div>
+                <a href="@item.ClickUrl" style="text-decoration: none;border: none">
+                    <img src="@item.ImagePath" width="100%"/>
+                </a>
+            </div>
+        }
+    </div>
+</div>
+<!-- 条目中可以是任意内容，如：<img src=""> -->
+ 
+<script>
+window.addEventListener("load",function (){ 
+    
+    layui.use('carousel', function(){
+      let carousel = layui.carousel;
+      //建造实例
+      carousel.render({
+        elem: '#@ViewData.ModelMetadata.PropertyName'
+        ,width: '100%' //设置容器宽度
+        ,arrow: 'always' //始终显示箭头
+        //,anim: 'updown' //切换动画方式
+      });
+    });
+})
+</script>

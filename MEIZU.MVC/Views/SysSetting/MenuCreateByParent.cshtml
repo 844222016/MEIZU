@@ -1,0 +1,37 @@
+﻿@using MEIZU.Tools
+@model MEIZU.Models.MenuCreateParentVm
+
+@{
+    ViewBag.Title = "添加父节点"; 
+}
+@using (@Html.BeginPearForm("createParentForm"))
+{
+    @Html.EditorFor(m => m.MenuName);
+    @Html.EditorFor(m => m.Icon);
+    @Html.FormSubmitButton("添加")
+}
+
+
+@section footer
+{
+    <script>
+        window.addEventListener("load",()=>{
+            layui.form.on("submit(formSubmit)",data=>{
+                layui.jquery.ajax({
+                    url:"/SysSetting/MenuCreateByParent",
+                    type:"post",
+                    data:data.field
+                }).done(res =>{
+                    if (res.code === 200){
+                        window.parent.tools.notice.success("添加成功");
+                        window.parent.layui.layer.closeAll();
+                        window.parent.parent.location.reload();
+                    }else {
+                        window.parent.tools.notice.warming("添加失败");
+                    }
+                })
+                return false;
+            })    
+        })
+    </script>
+}

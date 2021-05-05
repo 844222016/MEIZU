@@ -1,0 +1,82 @@
+﻿@using MEIZU.Tools
+@model MEIZU.Models.ManagerSettingVm
+
+@{
+    ViewBag.Title = "管理员管理"; 
+} 
+
+@Html.DisplayFor(m=>m.ManagerTableConfig)
+<script type="text/html" id="ManagerEnableTemplate"> 
+    <span class="layui-badge layui-bg-{{d.IsEnable == true?'blue':'orange'}}">{{d.IsEnable == true?"启用":"禁用"}}</span>
+</script>
+
+@section footer
+{
+    <script>
+        layui.laydate.render({
+            elem:"#CreateTime",
+            range:"~"
+        });
+        function create(){
+            @Html.PearOpen("'/SysSetting/ManagerCreate'")
+        }
+   
+        function enableState(res){
+            var data = res.data;
+            layui.jquery.ajax({
+                url:"/SysSetting/ManagerUpdateEnableState",
+                type:"post",
+                data:{
+                    id : data.Id
+                }
+            }).done(res => {
+                if (res.code == 200){
+                    tools.notice.success("修改成功");
+                    layui.table.reload("ManagerSettingTable");
+                }else{
+                    tools.notice.warming("修改失败"+res.msg);
+                }
+            })
+        }
+        
+        function ManagerDelete(res){
+            var data = res.data;
+            layer.confirm('确认删除吗？会将权限表相关数据全部删除', {
+                btn: ['确定', '取消'] 
+            },
+                function (index){
+                    console.info(data.Id)
+                    layui.jquery.ajax({
+                        url:"/SysSetting/ManagerRemove",
+                        type:"post",
+                        data:{
+                            id : data.Id
+                        }
+                    }).done(res => {
+                        if (res.code === 200){
+                            layer.close(index);
+                            tools.notice.success("删除成功");
+                            layui.table.reload("ManagerSettingTable");
+                        }else {
+                            tools.notice.warming("删除失败"+res.msg);
+                        }
+                    });
+                }
+            );
+        }
+        
+        function ManagerEdit(res){
+            var data = res.data;
+            @Html.PearOpen("'/SysSetting/ManagerEdit/'+data.Id");
+        }
+        
+        /**
+        * 设置角色 
+        */
+        function setRole(res){
+            var data = res.data;
+            console.info(data)
+            @Html.PearOpen("'/SysSetting/ManageSetRoles/'+data.Id");
+        }
+    </script>
+}

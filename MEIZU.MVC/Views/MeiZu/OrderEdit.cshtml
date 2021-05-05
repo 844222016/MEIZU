@@ -1,0 +1,81 @@
+﻿@using MEIZU.Tools
+@model MEIZU.MVC.Models.MeiZuVm.ShoppingOrder
+@{
+    ViewBag.Title = "订单修改";
+}
+@using (Html.BeginPearForm())
+{
+    @Html.HiddenFor(m=>m.Id)
+    if (Model.StateName != null)
+    { 
+        @Html.PearSelect("订单状态", "OrderStateId", ViewBag.StateList as SelectList)
+    }
+    @Html.EditorFor(m=>m.OrderName)
+    @Html.EditorFor(m => m.OrderPhone)
+    
+    <div class="layui-form-item" id="bioarea-wrap">
+        <label class="layui-form-label add-width required">收货地址</label>
+        <div class="layui-input-inline">
+            <select style="width: 100px;" class="level-1-select" lay-filter="#bioarea-wrap1level" id="asd"
+                    name="province">
+                <option value="">请选择省</option>
+            </select>
+        </div>
+        <div class="layui-input-inline">
+            <select class="level-2-select" lay-filter="#bioarea-wrap2level" name="city">
+                <option value="">请选择市</option>
+            </select>
+        </div>
+        <div class="layui-input-inline">
+            <select class="level-3-select" lay-filter="#bioarea-wrap3level" name="county">
+                <option value="">请选择市</option>
+            </select>
+        </div>
+    </div>
+    @Html.EditorFor(m => m.OrderAddress)
+    @Html.EditorFor(m => m.Remarks)
+    @Html.FormSubmitButton()
+}
+@section footer
+{
+    <script>
+        console.info(@Model.OrderProvince.ToString());
+        layui.form.on("submit(formSubmit)", data => {
+            layui.jquery.ajax({
+                url: "/MeiZu/OrderEdit",
+                type: "post",
+                data: data.field
+            }).done(res => {
+                let $ = layui.jquery;
+                if (res.code === 200) {
+                    window.parent.location.reload();
+                    window.parent.layui.layer.closeAll();
+                } else {
+                    window.parent.tools.notice.warning(res.msg);
+                }
+            });
+        });
+        layui.config({
+            base: '/libs/component/bioarea/js/'
+        }).extend({
+            bioarea: 'bioarea'
+        });
+        layui.use(['form', 'bioarea'], function () {
+
+            var form = layui.form
+                , bioarea = layui.bioarea
+
+            bioarea.render({
+                elem: '#bioarea-wrap',
+                defaultData: {
+                    provinceCode: '@Model.OrderProvince',
+                    cityCode: '@Model.OrderCity',
+                    countyCode: '@Model.OrderCounty'
+                },
+                form
+            });
+            //console.info(bioarea.getNameByCode('110115'));
+        });
+    </script>
+}
+

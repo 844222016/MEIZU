@@ -1,0 +1,29 @@
+﻿@using MEIZU.Tools
+@model MEIZU.Models.RoleCreateVm
+
+@{
+    ViewBag.Title = "创建角色"; 
+}
+
+@using (Html.BeginPearForm())
+{
+    @Html.EditorFor(m=>m.RoleName)
+    @Html.FormSubmitButton()
+} 
+
+@section footer
+{
+    <script>
+    window.addEventListener("load",()=>{
+        layui.form.on("submit(formSubmit)",data=>{
+           layui.jquery.ajax({
+            url:"/SysSetting/RoleCreate",
+            type:"post",
+            data:data.field
+           }).done(res=>{
+                @Html.ModalOpenDoneFucAndCloseIframeModal("添加成功")
+           }); 
+        });
+    })
+    </script>
+}

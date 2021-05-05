@@ -1,0 +1,40 @@
+﻿@using MEIZU.Tools
+@model MEIZU.MVC.Models.MeiZuVm.UserCreateVm
+
+@{
+    ViewBag.Title = "添加用户";
+}
+
+
+@using (Html.BeginPearForm("UserCreate"))
+{
+    @Html.EditorFor(m => m.UserName)
+    @Html.EditorFor(m => m.UserPwd)
+    @Html.FormSubmitButton()
+}
+
+@section footer
+{
+    <script>
+        layui.form.on("submit(formSubmit)",data =>{
+            console.info(data.field);
+       
+            layui.jquery.ajax({
+                url:"/MeiZu/UserCreate",
+                data:data.field,
+                type:"post"
+            }).done(res=>{
+                if (res.code == 200){
+                    window.parent.tools.notice.success("添加成功");
+                    window.parent.layui.layer.closeAll();
+                }else{ 
+                    window.parent.tools.notice.warning(res.msg);
+                }
+            }).fail(err=>{  
+                window.parent.tools.notice.warning("添加失败");
+            });
+            return false;
+        });
+
+    </script>
+}

@@ -1,0 +1,48 @@
+﻿@using MEIZU.Tools
+@model MEIZU.Model.ManagerUser
+
+@{
+    ViewBag.Title = "设置管理员角色";
+    
+}
+
+@using (Html.BeginPearForm("setRole"))
+{
+    @Html.HiddenFor(m=>m.Id)
+    <div class="layui-form-item">
+        <label class="layui-form-label">管理员账号</label>
+        <div class="layui-input-block">
+            @Model.LoginName
+        </div>
+    </div> 
+    
+    <div class="layui-form-item">
+        <label class="layui-form-label">设置角色</label>
+        <div class="layui-input-block"> 
+            <select name="Roles" xm-select="Roles" xm-select-skin="danger">
+               @foreach (var item in (List<SelectListItem>) ViewBag.Roles)
+               {
+                   <option value="@item.Value" @(item.Selected?"selected":"") >@item.Text</option>
+               }
+            </select> 
+        </div>
+    </div> 
+    
+  
+    @Html.FormSubmitButton()
+} 
+ 
+    
+@section footer
+{
+    <script>
+       layui.use(['select','code','element'], function(data) {
+            layui.jquery.ajax({
+                url:"/SysSetting/ManageSetRoles",
+                type:"post",
+                data:data.field
+            })
+        });
+    
+    </script>
+}

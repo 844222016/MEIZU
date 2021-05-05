@@ -1,0 +1,70 @@
+create table Dictionary
+(
+	Id bigint primary key identity(1,1),
+	GroupName nvarchar(20) not null,
+	[Value] varchar(200) not null
+)
+
+create table [ManagerUser]
+(
+	Id bigint primary key identity(1,1),
+	LoginName varchar(30) not null unique,
+	LoginPwd varchar(20) not null,
+	FaceImagePath varchar(500),
+	CreateTime datetime default(getdate()),
+	LastLoginTime datetime default(getdate()),
+	IsEnable bit default(1)
+)
+
+insert into [ManagerUser] values('admin','admin123','user.png',default,default,default)
+
+create table MenuType(
+	Id bigint primary key,
+	TypeName varchar(50) not null unique
+)
+
+insert into MenuType values(1,'Menu')
+insert into MenuType values(2,'Page')
+
+create table Menu(
+	Id bigint primary key identity(1,1),
+	MenuText nvarchar(100) not null,
+	ParentMenuId bigint references Menu(Id),
+	MenuTypeId bigint references MenuType(Id),
+	IconString varchar(50),
+	Url varchar(50)
+	Order int,
+) 
+
+insert into Menu values('系统设置',null,1,'',null,1)
+insert into Menu values('管理员设置',1,2,'','/SysSetting/ManagerSetting',1)
+insert into Menu values('权限设置',1,2,'','/SysSetting/RoleSetting',2)
+insert into Menu values('菜单设置',1,2,'','/SysSetting/MenuSetting',3)
+insert into Menu values('数据字典设置',1,2,'','/SysSetting/DectionarySetting',4)
+
+create table [Role](
+	Id bigint primary key identity(1,1),
+	RoleName varchar(100) not null unique
+)
+
+insert into [Role] values('admin')
+
+create table UserInRole(
+	Id bigint primary key identity(1,1),
+	UserId bigint references [ManagerUser](Id) not null,
+	RoleId bigint references [Role](Id) not null
+)
+
+insert into UserInRole values(1,1)
+
+create table MenuInRole( 
+	Id bigint primary key identity(1,1),
+	MenuId bigint references Menu(Id) not null,
+	RoleId bigint references [Role](Id) not null
+)
+
+insert into MenuInRole values(1,1)
+insert into MenuInRole values(2,1)
+insert into MenuInRole values(3,1)
+insert into MenuInRole values(4,1)
+insert into MenuInRole values(5,1)

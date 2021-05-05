@@ -1,0 +1,38 @@
+﻿@using MEIZU.Tools
+@model MEIZU.Models.InstallViewModel
+
+@{
+    ViewBag.Title = "安装PearAdmin基础信息";
+  
+}
+
+
+    @using (Html.BeginPearForm("installForm"))
+    {
+        @Html.EditorFor(m=>m.ServerHost)  
+        @Html.EditorFor(m=>m.ServerName)  
+        @Html.EditorFor(m=>m.ServerPwd)  
+        @Html.EditorFor(m=>m.DbName)   
+        <button class="layui-btn" lay-submit lay-filter="formDemo">使用上面的数据初始化</button> 
+    }
+
+@section footer
+{
+    <script>
+        let $ = layui.jquery;
+        layui.form.on('submit(formDemo)', function(data){
+           $.ajax({
+            url:"/SysSetting/Install",
+            type:"post",
+            data:data.field
+           }).done(function (res){
+               layui.layer.msg('数据库创建成功，请登陆系统，默认账号：admin 默认密码：admin123')
+           }).fail(function (){
+                layui.layer.msg('安装失败') 
+                
+            });
+           return false;
+         });
+        
+    </script>
+}

@@ -1,0 +1,64 @@
+﻿@using MEIZU.Models
+@model string
+@{
+
+    // typeof(Student).GetProperty(ViewData.ModelMetadata.PropertyName)
+    //     .GetCustomAttributes()
+
+
+
+    var data = ViewData;
+    //获取验证特性值
+    var d = Html.GetUnobtrusiveValidationAttributes("");
+
+    var valid = string.Empty; 
+    if (d.ContainsKey("data-val"))
+    {
+        
+        var valstr = new List<string>();
+        foreach (var kv in d)
+        {
+            switch (kv.Key)
+            {
+                case "data-val":
+                    valstr .Add("required");
+                    break;
+                case "data-val-phone":
+                    valstr .Add("phone");
+                    break;
+                case "data-val-email":
+                    valstr .Add("email");
+                    break;
+                case "data-val-url":
+                    valstr .Add("url");
+                    break;
+            }
+            valid = $"lay-verify=\"{string.Join("|",valstr)  }\"";
+        }
+    }
+ 
+} 
+
+<div class="layui-form-item">
+    <label class="layui-form-label">@Html.ViewData.ModelMetadata.DisplayName</label>
+    <div class="layui-input-block">
+        @if(data.ModelMetadata.DataTypeName == "date" || data.ModelMetadata.DataTypeName=="datetime")
+        {
+            <input type="text" name="@data.ModelMetadata.PropertyName" id="@data.ModelMetadata.PropertyName" @Html.Raw(valid) placeholder="" class="layui-input" value="@Html.ViewData.ModelMetadata.Model">
+            <script>
+               window.addEventListener("load",()=>{
+                   layui.laydate.render({
+                        elem: '#@data.ModelMetadata.PropertyName' 
+                   });
+               });
+            </script>            
+        }else{
+            <input type="@(data.ModelMetadata.DataTypeName == null ? "text" : data.ModelMetadata.DataTypeName.ToLower())"
+                   name="@data.ModelMetadata.PropertyName" @Html.Raw(valid)
+                   placeholder="请输入@(Html.DisplayNameForModel())"
+                   autocomplete="off"
+                   class="layui-input" value="@Html.ViewData.ModelMetadata.Model">
+        }                                                                         
+        </div>
+</div>
+

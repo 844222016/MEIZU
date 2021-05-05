@@ -1,0 +1,31 @@
+﻿@using MEIZU.MVC.Models.MeiZuVm
+@using MEIZU.Tools
+@model MEIZU.DTO.ShoppingOrderDTO
+@{
+    ViewBag.Title = "订单详情";
+}
+@using (Html.BeginPearForm())
+{
+    @Html.DisplayFor(m => m.UserName)
+    <br />
+    <label id="province"></label>
+    <br />
+    <label id="city"></label>
+    <br />
+    <label id="county"></label>
+    <br />
+    @Html.DisplayFor(m => m.Name)
+}
+
+@section footer
+{
+    <script src="~/libs/component/bioarea/js/bioarea.js"></script>
+    <script>
+        bioarea = layui.bioarea;
+        let $ = layui.jquery;
+        $("#province").html(bioarea.getNameByCode('@Model.Orderprovince'));
+        $("#city").html(bioarea.getNameByCode('@Model.OrderCity'));
+        $("#county").html(bioarea.getNameByCode('@Model.OrderCounty'));
+    </script>
+
+}

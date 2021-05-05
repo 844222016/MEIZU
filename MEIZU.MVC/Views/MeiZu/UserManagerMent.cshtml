@@ -1,0 +1,64 @@
+﻿@using MEIZU.Tools
+@model MEIZU.MVC.Models.MeiZuVm.UserVmModel
+
+@{
+    ViewBag.Title = "用户管理";
+}
+
+<!--渲染页面-->
+@Html.DisplayFor(m => m.UserTableData)
+
+
+<script type="text/html" id="ManagerEnableTemplate">
+    <span class="layui-badge layui-bg-{{d.States == true?'blue':'orange'}}">{{d.States == true ?"已登录":"未登录"}}</span>
+</script>
+<script type="text/html" id="ManagerEnableTemplate1">
+    <span class="layui-badge layui-bg-{{d.Current == true?'blue':'orange'}}">{{d.Current == true ?"启用":"禁用"}}</span>
+</script>
+
+@section footer
+{
+    <script>
+
+        // 删除
+        function userDelete(data) {
+            layui.jquery.get("/MeiZu/UserDelete/" + data.data.Id);
+            return true;
+        }
+
+        // 设置账户
+        function setRole(data) {
+            @Html.PearOpen("'/MeiZu/UserSetRole/'+data.data.Id")
+        }
+
+        // 禁用账户
+        function enableState(data) {
+            layui.jquery.ajax({
+                url: "/MeiZu/UserEnableState",
+                type: "post",
+                data: {
+                    UserName: data.data.UserName
+                }
+            }).done(res => {
+                    if (res.code == 200) {
+                        tools.notice.success("修改成功");
+                        layui.table.reload("UserTable");
+                    } else {
+                        tools.notice.warming("修改失败" + res.msg);
+                    }
+                });
+
+        }
+
+        // 启用账号
+        function enableStateStart(data) {
+            layui.jquery.get("/MeiZu/UserEnableStateStart/?name="+data.data.UserName);
+        }
+
+        // 添加
+        function create() {
+            @Html.PearOpen("'/Meizu/UserCreate/'");
+        }
+    </script>
+}
+

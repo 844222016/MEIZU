@@ -1,0 +1,36 @@
+﻿@model MEIZU.MVC.Models.MeiZuVm.PhoneTypeVM
+@using MEIZU.Tools
+@{
+    ViewBag.Title = "修改节点信息";
+}
+@using (Html.BeginPearForm())
+{
+    @Html.HiddenFor(m => m.Id)
+    @Html.EditorFor(m => m.TypeName)
+    if (Model.TypeId != null)
+    {
+        @Html.PearSelect("商品类别","TypeId",ViewBag.list as SelectList)
+    }
+    @Html.FormSubmitButton()
+}
+@section footer
+{
+    <script>
+        layui.form.on("submit(formSubmit)", data => {
+            console.info(data.field);
+            layui.jquery.ajax({
+                url: "/MeiZu/EditNode",
+                type: "post",
+                data: data.field
+            }).done(res => {
+                if (res.code === 200) {
+                    window.parent.layui.layer.closeAll();
+                    window.parent.location.reload();
+                } else {
+                    window.parent.tools.notice.warning(res.msg);
+                }
+            });
+            return false;
+        });
+    </script>
+}
